@@ -1,0 +1,21 @@
+procs:
+  btop:
+    cmd: ['btop']
+  hy/tenualosa_ilisha:
+    shell: "hyperfine --max-runs=5 'go run main.go ./genomes/GCA_015244755.2_TenIli1.0_genomic.fna'" 
+    autostart: false
+  hy/zebrafish:
+    shell: "hyperfine --max-runs=5 'go run main.go ./genomes/GCF_049306965.1_GRCz12tu_genomic.fna'"
+    autostart: false
+  hy/atlantic-salmon:
+    shell: "hyperfine --max-runs=5 'go run main.go ./genomes/GCF_905237065.1_Ssal_v3.1_genomic.fna'"
+    autostart: false
+  tenualosa_ilisha:
+    shell: time go run main.go ./genomes/GCA_015244755.2_TenIli1.0_genomic.fna
+    autostart: false
+  zebrafish:
+    shell: time go run main.go ./genomes/GCF_049306965.1_GRCz12tu_genomic.fna
+    autostart: false
+  atlantic-salmon:
+    shell: time go run main.go ./genomes/GCF_905237065.1_Ssal_v3.1_genomic.fna
+    autostart: false
