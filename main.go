@@ -36,6 +36,12 @@ type FastaRecord struct {
 	Sequence []byte `json:"sequence"`
 }
 
+func (fr *FastaRecord) Release() {
+	fr.Header = ""
+	fr.Sequence = nil
+	fastaRecordPool.Put(fr)
+}
+
 var fastaRecordPool = sync.Pool{
 	New: func() any {
 		return &FastaRecord{}
@@ -59,6 +65,13 @@ type SinglePatternMatch struct {
 	MismatchIndices []int  `json:"mismatchIndices"`
 	Header          string `json:"header"`
 	Offset          uint32 `json:"offset"`
+}
+
+func (spm *SinglePatternMatch) Release() {
+	spm.PAM = ""
+	spm.Header = ""
+	spm.MismatchIndices = nil
+	singlePatternMatchPool.Put(spm)
 }
 
 var singlePatternMatchPool = sync.Pool{
@@ -89,7 +102,7 @@ func cliArgumentInitialization() {
 	}
 }
 
-func readFile(fileName string, bufferSize int, fastRecordChan chan<- *FastaRecord) {
+func readFile(fileName string, bufferSize int, fastaRecordChan chan<- *FastaRecord) {
 	file, err := os.Open(fileName)
 	if err != nil {
 		log.Fatal(err)
@@ -106,8 +119,7 @@ func readFile(fileName string, bufferSize int, fastRecordChan chan<- *FastaRecor
 
 		if line[0] == '>' {
 			if currentFastaRecord != nil {
-				fastRecordChan <- currentFastaRecord
-				fastaRecordPool.Put(currentFastaRecord)
+				fastaRecordChan <- currentFastaRecord
 			}
 			currentFastaRecord = fastaRecordPool.Get().(*FastaRecord)
 			currentFastaRecord.Header = line[1:]
@@ -118,9 +130,8 @@ func readFile(fileName string, bufferSize int, fastRecordChan chan<- *FastaRecor
 	}
 
 	if currentFastaRecord != nil {
-		fastRecordChan <- currentFastaRecord
+		fastaRecordChan <- currentFastaRecord
 	}
-	close(fastRecordChan)
 }
 
 func countMismatchAndIndices(input string, target string) (int, []int) {
@@ -136,19 +147,18 @@ func countMismatchAndIndices(input string, target string) (int, []int) {
 }
 
 func processFastaRecord(targetPAM string, fastaRecordChan <-chan *FastaRecord, patternMatchChan chan<- *SinglePatternMatch) {
-	var singlePatternMatch *SinglePatternMatch
 	pamLen := len(targetPAM)
 	for fastaRecord := range fastaRecordChan {
 		seqLen := len(fastaRecord.Sequence)
 		if seqLen < pamLen {
 			continue
 		}
-		log.Println("seq len:", seqLen, "pam len:", pamLen)
-		for i := 0; i <= seqLen-pamLen; i++ {
+		maxStart := seqLen - pamLen
+		for i := 0; i <= maxStart; i++ {
 			segment := string(fastaRecord.Sequence[i : i+pamLen])
 			mismatch, mismatchIndices := countMismatchAndIndices(segment, targetPAM)
 			if mismatch <= MAX_MISMATCH {
-				singlePatternMatch = singlePatternMatchPool.Get().(*SinglePatternMatch)
+				singlePatternMatch := singlePatternMatchPool.Get().(*SinglePatternMatch)
 				singlePatternMatch.MismatchIndices = mismatchIndices
 				singlePatternMatch.PAM = targetPAM
 				singlePatternMatch.Header = fastaRecord.Header
@@ -156,9 +166,8 @@ func processFastaRecord(targetPAM string, fastaRecordChan <-chan *FastaRecord, p
 				patternMatchChan <- singlePatternMatch
 			}
 		}
-		fastaRecordPool.Put(fastaRecord) // Return the processed record to the pool
+		fastaRecord.Release()
 	}
-	close(patternMatchChan) // Close the output channel when all records are processed
 }
 
 func processResults(patternMatchChan <-chan *SinglePatternMatch) *Results {
@@ -174,13 +183,8 @@ func processResults(patternMatchChan <-chan *SinglePatternMatch) *Results {
 			Header: matchInfo.Header,
 			Offset: matchInfo.Offset,
 		})
-		// Recalculate mismatch and indices here if needed for detailed reporting per match
-		segment := TARGET_FILE // This is wrong, need access to the original sequence
-		_ = segment            // Avoid unused variable error
-		// mismatch, indices := countMismatchAndIndices(segment, matchInfo.PAM)
-		// results[matchInfo.PAM].MismatchIndices = append(results[matchInfo.PAM].MismatchIndices, indices)
 
-		singlePatternMatchPool.Put(matchInfo)
+		matchInfo.Release()
 	}
 	return &results
 }
@@ -192,32 +196,45 @@ func main() {
 	log.Println("Number of Workers:", NUM_WORKERS)
 	log.Println("Max Mismatch Allowed:", MAX_MISMATCH)
 
+	// ------------------------------------------
+	// ------- Initialize the channels ----------
+	// ------------------------------------------
 	wg := sync.WaitGroup{}
 	fastaRecordChan := make(chan *FastaRecord, NUM_WORKERS*2)
-	patternMatchChan := make(chan *SinglePatternMatch, NUM_WORKERS*2)
+	patternMatchedChan := make(chan *SinglePatternMatch, NUM_WORKERS*2)
 	resultsChan := make(chan *Results, 1) // Channel to receive the final results
 
+	// ---------------------------------------------------------------------
+	// ------- Read the file and pass it to the fastRecordChannel ----------
+	// ---------------------------------------------------------------------
 	wg.Add(1)
 	go timeFunction("Read File", func() {
 		readFile(TARGET_FILE, bufferSize, fastaRecordChan)
+		close(fastaRecordChan)
 		wg.Done()
 	})
 
-	for i := 0; i < NUM_WORKERS; i++ {
+	// ------------------------------------------------
+	// ------- Parallely Process the Records ----------
+	// ------------------------------------------------
+	for range NUM_WORKERS {
 		wg.Add(1)
 		go func() {
-			processFastaRecord(TARGET_PAM, fastaRecordChan, patternMatchChan)
+			processFastaRecord(TARGET_PAM, fastaRecordChan, patternMatchedChan)
 			wg.Done()
 		}()
 	}
 
+	// ------------------------------------------------
+	// ------- Parallely Process the results ----------
+	// ------------------------------------------------
 	go func() {
-		wg.Wait()
-		close(patternMatchChan)
-		resultsChan <- processResults(patternMatchChan)
+		resultsChan <- processResults(patternMatchedChan)
 		close(resultsChan)
 	}()
 
+	wg.Wait()
+	close(patternMatchedChan) // Close the output channel when all records are processed
 	results := <-resultsChan
 	resultsJSON, err := json.MarshalIndent(results, "", "  ")
 	if err != nil {
