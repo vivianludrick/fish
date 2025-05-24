@@ -6,7 +6,7 @@ type SegmentConfig struct {
 }
 
 type PatternConfig struct {
-	Segments           []SegmentConfig `json:"segments"`
-	MaxMismatchAllowed int             `json:"maxMismatchAllowed"`
-	TotalSize          int             `json:"totalSize"`
+	Segments           []*SegmentConfig `json:"segments"`
+	MaxMismatchAllowed int              `json:"maxMismatchAllowed"`
+	TotalSize          int              `json:"totalSize"`
 }
