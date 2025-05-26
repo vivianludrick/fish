@@ -14,7 +14,9 @@ type MatchedPattern struct {
 
 var matchedPatternPool = sync.Pool{
 	New: func() any {
-		return &MatchedPattern{}
+		return &MatchedPattern{
+			Header: make([]byte, 0, 120),
+		}
 	},
 }
 
