@@ -27,7 +27,7 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *po
 	var currentEntry *pools.FastaRecord = nil
 
 	for scanner.Scan() {
-		line := scanner.Bytes()
+		line := scanner.Text()
 		if len(line) == 0 {
 			continue
 		}
@@ -82,7 +82,7 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 	var currentEntry *pools.FastaRecord = nil
 
 	for scanner.Scan() {
-		line := scanner.Bytes()
+		line := scanner.Text()
 		if len(line) == 0 {
 			continue
 		}

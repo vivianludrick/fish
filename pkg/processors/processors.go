@@ -1,9 +1,16 @@
 package processors
 
 import (
+	"fmt"
 	"vivalchemy/cris/internal/bitmaps"
+	"vivalchemy/cris/internal/utils"
 	"vivalchemy/cris/pkg/models"
 	"vivalchemy/cris/pkg/models/pools"
+)
+
+// TODO: Fetch the guide sequence here
+var (
+	GUIDE_SEQUENCE = "CTAATAGGAGAGTATGCTGATGG"
 )
 
 func ComparePatterns(pattern1 []uint64, pattern2 []uint64, config *models.PatternConfig) bool {
@@ -39,20 +46,32 @@ func ComparePatterns(pattern1 []uint64, pattern2 []uint64, config *models.Patter
 
 func ProcessFastaRecord(targetPattern []uint64, config *models.PatternConfig, fastaRecordChan <-chan *pools.FastaRecord, matcedPatternChan chan<- *pools.MatchedPattern) {
 	for fastaRecord := range fastaRecordChan {
+		if len(fastaRecord.Sequence) < config.TotalSize {
+			continue
+		}
+
 		slidingWindow := pools.NewSlidingWindow(config)
 
-		var i uint32
-		for i = range uint32(len(fastaRecord.Sequence)) {
+		// fillup the sliding window to fullsize-1 so that next time we add we get full and start comparin there and there
+		utils.DebugPrint("Processing Record: "+fastaRecord.Header, nil)
+		for i := range config.TotalSize - 1 {
+			slidingWindow.AddNucleotide(bitmaps.NucleotideToBitMap[fastaRecord.Sequence[i]])
+			fmt.Println("Segments", slidingWindow.Segments, "\tSequence:", slidingWindow.GetSequence())
+		}
+
+		for i := config.TotalSize - 1; i < len(fastaRecord.Sequence); i++ {
 			nucleotide := fastaRecord.Sequence[i]
 			// get the bit pattern for the current nucleotide
 			bitPattern := bitmaps.NucleotideToBitMap[nucleotide]
 			slidingWindow.AddNucleotide(bitPattern)
 
+			fmt.Println("Segments", slidingWindow.Segments, "\tSequence:", slidingWindow.GetSequence())
 			if ComparePatterns(slidingWindow.Segments, targetPattern, config) {
 				matchedPattern := pools.NewPatternMatch()
 				matchedPattern.Header = fastaRecord.Header
-				matchedPattern.PAM = slidingWindow.GetSequence()
-				matchedPattern.Offset = i - 21 // 1-based indexing, starting index at 22 spaces to left
+				matchedPattern.MatchedSequence = slidingWindow.GetSequence()
+				matchedPattern.GuideSequence = GUIDE_SEQUENCE
+				matchedPattern.Offset = i - config.TotalSize + 2 // 1-based indexing, starting index at 22 spaces to left
 
 				matcedPatternChan <- matchedPattern
 			}
@@ -63,7 +82,7 @@ func ProcessFastaRecord(targetPattern []uint64, config *models.PatternConfig, fa
 
 func ProcessResults(matcedPatternChan <-chan *pools.MatchedPattern) {
 	for matcedPattern := range matcedPatternChan {
-		matcedPattern.ToResults()
+		matcedPattern.Println()
 		matcedPattern.Release()
 	}
 }

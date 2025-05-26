@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"runtime"
+	// "runtime"
 	"sync"
 	"vivalchemy/cris/internal/parsers"
 	"vivalchemy/cris/internal/utils"
@@ -18,7 +18,7 @@ var (
 	TARGET_PAM  = "CTAATAGGAGAGTATGCTGATGG"
 	BUFFER_SIZE = 1024 * 1024 * 4 // 4MB buffer for better I/O performance
 	CACHE_DIR   = ".pam_cache"
-	numWorkers  = max(1, runtime.NumCPU()/2)
+	numWorkers  = 1 // max(1, runtime.NumCPU()/2)
 )
 
 func cliArgumentInitialization() {
@@ -39,7 +39,7 @@ func main() {
 	patternConfig := &models.PatternConfig{
 		Segments: []*models.SegmentConfig{
 			{Size: 13, AllowedMismatch: 4},
-			{Size: 10, AllowedMismatch: 2},
+			{Size: 10, AllowedMismatch: 4},
 		},
 		MaxMismatchAllowed: 4,
 		TotalSize:          23,
@@ -50,6 +50,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	utils.DebugPrint("Target Pattern:", targetPattern)
 
 	var processorWg sync.WaitGroup
 	var parserWg sync.WaitGroup
