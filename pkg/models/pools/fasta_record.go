@@ -1,4 +1,4 @@
-package models
+package pools
 
 import "sync"
 

@@ -7,11 +7,11 @@ import (
 	"io"
 	"os"
 	"vivalchemy/cris/internal/utils"
-	"vivalchemy/cris/pkg/models"
+	"vivalchemy/cris/pkg/models/pools"
 )
 
 // no caching only parsing
-func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *models.FastaRecord) {
+func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *pools.FastaRecord) {
 
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -24,7 +24,7 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *mo
 	buffer := make([]byte, bufferSize)
 	scanner.Buffer(buffer, bufferSize)
 
-	var currentEntry *models.FastaRecord = nil
+	var currentEntry *pools.FastaRecord = nil
 
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -36,7 +36,7 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *mo
 			if currentEntry != nil {
 				fastaRecordsChan <- currentEntry
 			}
-			currentEntry = models.NewFastaRecord()
+			currentEntry = pools.NewFastaRecord()
 			currentEntry.Header = line[1:]
 			currentEntry.Sequence = make([]byte, 0, 1024*8)
 		} else {
@@ -54,7 +54,7 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *mo
 	}
 }
 
-func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, fastaRecordsChan chan<- *models.FastaRecord) error {
+func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, fastaRecordsChan chan<- *pools.FastaRecord) error {
 	fastaFile, err := os.Open(fileName)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
@@ -79,7 +79,7 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 
 	encoder := gob.NewEncoder(cacheFile)
 
-	var currentEntry *models.FastaRecord = nil
+	var currentEntry *pools.FastaRecord = nil
 
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -94,7 +94,7 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 				}
 				fastaRecordsChan <- currentEntry
 			}
-			currentEntry = models.NewFastaRecord()
+			currentEntry = pools.NewFastaRecord()
 			currentEntry.Header = line[1:]
 		} else {
 			currentEntry.Sequence = append(currentEntry.Sequence, line...)
@@ -116,7 +116,7 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 	return nil
 }
 
-func decodeFastaCacheFile(cacheFileName string, fastaRecordsChan chan<- *models.FastaRecord) error {
+func decodeFastaCacheFile(cacheFileName string, fastaRecordsChan chan<- *pools.FastaRecord) error {
 	cacheFile, err := os.Open(cacheFileName)
 	if err != nil {
 		return err
@@ -124,10 +124,10 @@ func decodeFastaCacheFile(cacheFileName string, fastaRecordsChan chan<- *models.
 	defer cacheFile.Close()
 
 	decoder := gob.NewDecoder(cacheFile)
-	var currentEntry *models.FastaRecord = nil
+	var currentEntry *pools.FastaRecord = nil
 
 	for {
-		currentEntry = models.NewFastaRecord()
+		currentEntry = pools.NewFastaRecord()
 		err := decoder.Decode(currentEntry)
 		if err == io.EOF {
 			currentEntry.Release()
@@ -143,11 +143,11 @@ func decodeFastaCacheFile(cacheFileName string, fastaRecordsChan chan<- *models.
 }
 
 // first decode or not then parse and encode
-func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize int, fastaRecordsChan chan<- *models.FastaRecord) error {
-	cacheFile := utils.GetCacheFileName(cacheDir, fileName)
+func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize int, fastaRecordsChan chan<- *pools.FastaRecord) error {
+	cacheFileName := utils.GetCacheFileName(cacheDir, fileName)
 
-	if utils.FileExists(cacheFile) {
-		if err := decodeFastaCacheFile(cacheFile, fastaRecordsChan); err == nil {
+	if !utils.IsFileModifiedAfterCaching(cacheFileName, fileName) {
+		if err := decodeFastaCacheFile(cacheFileName, fastaRecordsChan); err == nil {
 			return nil
 		}
 		fmt.Println("Error decoding cache file: regenerating the cache file")
