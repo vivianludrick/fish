@@ -3,7 +3,7 @@ package pools
 import "sync"
 
 type FastaRecord struct {
-	Header   string
+	Header   []byte
 	Sequence []byte
 }
 
@@ -17,7 +17,7 @@ var FastaRecordPool = sync.Pool{
 
 // Release the FastaRecord back to the pool
 func (fe *FastaRecord) Release() {
-	fe.Header = ""
+	fe.Header = []byte{}
 	fe.Sequence = fe.Sequence[:0]
 	FastaRecordPool.Put(fe)
 }

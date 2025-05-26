@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -17,4 +18,14 @@ func PrintPattern(pattern []uint64) {
 		str += fmt.Sprintf("%016b", segment)
 	}
 	fmt.Println(str)
+}
+
+func DebugPrint(label string, data any) {
+	if os.Getenv("DEBUG") != "true" {
+		return
+	}
+	fmt.Println("--------------------------------------------------------")
+	fmt.Println("         ", label)
+	fmt.Println("--------------------------------------------------------")
+	fmt.Println(data)
 }

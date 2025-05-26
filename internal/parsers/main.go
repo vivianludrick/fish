@@ -27,7 +27,7 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *po
 	var currentEntry *pools.FastaRecord = nil
 
 	for scanner.Scan() {
-		line := scanner.Text()
+		line := scanner.Bytes()
 		if len(line) == 0 {
 			continue
 		}
@@ -82,7 +82,7 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 	var currentEntry *pools.FastaRecord = nil
 
 	for scanner.Scan() {
-		line := scanner.Text()
+		line := scanner.Bytes()
 		if len(line) == 0 {
 			continue
 		}
@@ -150,7 +150,10 @@ func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize in
 		if err := decodeFastaCacheFile(cacheFileName, fastaRecordsChan); err == nil {
 			return nil
 		}
-		fmt.Println("Error decoding cache file: regenerating the cache file")
+
+		if err := decodeFastaCacheFile(cacheFileName, fastaRecordsChan); err != nil {
+			fmt.Println("Error decoding cache file: ", err)
+		}
 	}
 
 	// Either cache file doesn't exist or decoding failed

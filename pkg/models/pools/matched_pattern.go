@@ -7,7 +7,7 @@ import (
 
 type MatchedPattern struct {
 	PAM    string `json:"pam"`
-	Header string `json:"header"`
+	Header []byte `json:"header"`
 	Offset uint32 `json:"offset"`
 }
 
@@ -23,12 +23,12 @@ func NewPatternMatch() *MatchedPattern {
 
 func (mp *MatchedPattern) Release() {
 	mp.PAM = ""
-	mp.Header = ""
+	mp.Header = []byte{}
 	matchedPatternPool.Put(mp)
 }
 
 func (mp *MatchedPattern) ToResults() {
-	fmt.Println(mp.Header)
+	fmt.Println(string(mp.Header))
 	fmt.Println(mp.PAM)
 	fmt.Println(mp.Offset)
 }
