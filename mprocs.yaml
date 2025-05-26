@@ -1,24 +1,40 @@
 procs:
   test:
     shell: time go run ./cmd/cli/main.go
+    env:
+      DEBUG: "true"
     autostart: false
   btop:
     cmd: ['btop']
+    env:
+      DEBUG: "true"
   hy/tenualosa_ilisha:
     shell: "hyperfine --max-runs=5 'go run ./cmd/cli/main.go ./genomes/GCA_015244755.2_TenIli1.0_genomic.fna'" 
+    env:
+      DEBUG: "true"
     autostart: false
   hy/zebrafish:
     shell: "hyperfine --max-runs=5 'go run ./cmd/cli/main.go ./genomes/GCF_049306965.1_GRCz12tu_genomic.fna'"
+    env:
+      DEBUG: "true"
     autostart: false
   hy/atlantic-salmon:
     shell: "hyperfine --max-runs=5 'go run ./cmd/cli/main.go ./genomes/GCF_905237065.1_Ssal_v3.1_genomic.fna'"
+    env:
+      DEBUG: "true"
     autostart: false
   tenualosa_ilisha:
     shell: time go run ./cmd/cli/main.go ./genomes/GCA_015244755.2_TenIli1.0_genomic.fna
+    env:
+      DEBUG: "true"
     autostart: false
   zebrafish:
     shell: time go run ./cmd/cli/main.go ./genomes/GCF_049306965.1_GRCz12tu_genomic.fna
+    env:
+      DEBUG: "true"
     autostart: false
   atlantic-salmon:
     shell: time go run ./cmd/cli/main.go ./genomes/GCF_905237065.1_Ssal_v3.1_genomic.fna
+    env:
+      DEBUG: "true"
     autostart: false

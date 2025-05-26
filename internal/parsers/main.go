@@ -151,9 +151,7 @@ func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize in
 			return nil
 		}
 
-		if err := decodeFastaCacheFile(cacheFileName, fastaRecordsChan); err != nil {
-			fmt.Println("Error decoding cache file: ", err)
-		}
+		fmt.Println("Error decoding cache file")
 	}
 
 	// Either cache file doesn't exist or decoding failed

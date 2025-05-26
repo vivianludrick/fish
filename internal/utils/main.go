@@ -25,7 +25,17 @@ func DebugPrint(label string, data any) {
 		return
 	}
 	fmt.Println("--------------------------------------------------------")
-	fmt.Println("         ", label)
+	fmt.Println(label)
 	fmt.Println("--------------------------------------------------------")
 	fmt.Println(data)
+}
+
+func DebugRun(label string, fn func()) {
+	if os.Getenv("DEBUG") != "true" {
+		return
+	}
+	fmt.Println("--------------------------------------------------------")
+	fmt.Println(label)
+	fmt.Println("--------------------------------------------------------")
+	fn()
 }

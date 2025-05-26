@@ -3,6 +3,7 @@ package pools
 import (
 	"fmt"
 	"sync"
+	"vivalchemy/cris/internal/utils"
 )
 
 type MatchedPattern struct {
@@ -28,7 +29,9 @@ func (mp *MatchedPattern) Release() {
 }
 
 func (mp *MatchedPattern) ToResults() {
-	fmt.Println(string(mp.Header))
-	fmt.Println(mp.PAM)
-	fmt.Println(mp.Offset)
+	utils.DebugRun("ToResults", func() {
+		fmt.Println(string(mp.Header))
+		fmt.Println(mp.PAM)
+		fmt.Println(mp.Offset)
+	})
 }
