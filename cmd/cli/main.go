@@ -38,10 +38,12 @@ func main() {
 
 	patternConfig := &models.PatternConfig{
 		Segments: []*models.SegmentConfig{
+			{Size: 2, AllowedMismatch: 0},
+			{Size: 1, AllowedMismatch: 1},
+			{Size: 7, AllowedMismatch: 4},
 			{Size: 13, AllowedMismatch: 4},
-			{Size: 10, AllowedMismatch: 4},
 		},
-		MaxMismatchAllowed: 4,
+		MaxMismatchAllowed: 5,
 		TotalSize:          23,
 	}
 
@@ -50,26 +52,26 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	utils.DebugPrint("Target Pattern:", targetPattern)
+	utils.DebugPrintln("Target Pattern:", targetPattern)
 
 	var processorWg sync.WaitGroup
 	var parserWg sync.WaitGroup
 
-	fastaRecordsChan := make(chan *pools.FastaRecord, numWorkers*2)
+	fastaRecordChunksChan := make(chan *pools.FastaRecordChunk, numWorkers*2)
 	matchedPatternChan := make(chan *pools.MatchedPattern, numWorkers*2)
 	// aggregatedResultsChan := make(chan *PatternResults, 1)
 
 	parserWg.Add(1)
 	go utils.TimeFunction("Parse FASTA File", func() {
-		defer close(fastaRecordsChan)
-		parsers.ParseFastaFileOrDecodeCache(TARGET_FILE, CACHE_DIR, BUFFER_SIZE, fastaRecordsChan)
+		defer close(fastaRecordChunksChan)
+		parsers.ParseFastaFileOrDecodeCache(TARGET_FILE, CACHE_DIR, BUFFER_SIZE, fastaRecordChunksChan, patternConfig)
 		parserWg.Done()
 	})
 
 	for range numWorkers {
 		processorWg.Add(1)
 		go func() {
-			processors.ProcessFastaRecord(targetPattern, patternConfig, fastaRecordsChan, matchedPatternChan)
+			processors.ProcessFastaRecordChunks(targetPattern, patternConfig, fastaRecordChunksChan, matchedPatternChan)
 			processorWg.Done()
 		}()
 	}

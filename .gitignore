@@ -10,3 +10,5 @@ pam_optimizer
 .targetPam.txt
 term_buffer*.txt
 test_results/*
+dump
+genomes

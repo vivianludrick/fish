@@ -7,11 +7,16 @@ import (
 	"io"
 	"os"
 	"vivalchemy/cris/internal/utils"
+	"vivalchemy/cris/pkg/models"
 	"vivalchemy/cris/pkg/models/pools"
 )
 
+var (
+	CHUNK_SIZE = 1024 * 1024 * 4 // 4MB
+)
+
 // no caching only parsing
-func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *pools.FastaRecord) {
+func ParseFastaFile(fileName string, bufferSize int, fastaRecordChunksChan chan<- *pools.FastaRecordChunk, config *models.PatternConfig) {
 
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -34,7 +39,7 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *po
 
 		if line[0] == '>' {
 			if currentEntry != nil {
-				fastaRecordsChan <- currentEntry
+				sendInChunks(fastaRecordChunksChan, currentEntry, CHUNK_SIZE, config)
 			}
 			currentEntry = pools.NewFastaRecord()
 			currentEntry.Header = line[1:]
@@ -50,11 +55,37 @@ func ParseFastaFile(fileName string, bufferSize int, fastaRecordsChan chan<- *po
 	}
 
 	if currentEntry != nil {
-		fastaRecordsChan <- currentEntry
+		sendInChunks(fastaRecordChunksChan, currentEntry, CHUNK_SIZE, config)
 	}
 }
 
-func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, fastaRecordsChan chan<- *pools.FastaRecord) error {
+func sendInChunks(fastaRecordChunksChan chan<- *pools.FastaRecordChunk, record *pools.FastaRecord, chunkSize int, config *models.PatternConfig) {
+	sequence := record.Sequence
+	seqLen := len(sequence)
+	step := chunkSize - config.TotalSize + 1
+
+	if seqLen < config.TotalSize || step <= 0 {
+		// utils.DebugPrintln("Send In Chunks:", "Error: Sequence length is less than config.TotalSize")
+		return
+	}
+
+	// fmt.Println(chunkSize, "chunkSize")
+	for i := 0; i < seqLen-config.TotalSize; i += step {
+		end := min(i+chunkSize, seqLen)
+		if end-i < config.TotalSize {
+			break
+		}
+		chunk := &pools.FastaRecordChunk{
+			Header:   record.Header,
+			Sequence: sequence[i:end],
+			Offset:   i,
+		}
+		// fmt.Printf("Chunk %v: %v len(%v)\n", i, string(chunk.Sequence), len(chunk.Sequence))
+		fastaRecordChunksChan <- chunk
+	}
+}
+
+func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, fastaRecordChunksChan chan<- *pools.FastaRecordChunk, config *models.PatternConfig) error {
 	fastaFile, err := os.Open(fileName)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
@@ -92,7 +123,7 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 				if err := encoder.Encode(currentEntry); err != nil {
 					fmt.Println("Error encoding record:", err)
 				}
-				fastaRecordsChan <- currentEntry
+				sendInChunks(fastaRecordChunksChan, currentEntry, CHUNK_SIZE, config)
 			}
 			currentEntry = pools.NewFastaRecord()
 			currentEntry.Header = line[1:]
@@ -110,13 +141,13 @@ func parseAndEncodeFastaFile(fileName string, cacheDir string, bufferSize int, f
 		if err := encoder.Encode(currentEntry); err != nil {
 			fmt.Println("Error encoding record:", err)
 		}
-		fastaRecordsChan <- currentEntry
+		sendInChunks(fastaRecordChunksChan, currentEntry, CHUNK_SIZE, config)
 	}
 
 	return nil
 }
 
-func decodeFastaCacheFile(cacheFileName string, fastaRecordsChan chan<- *pools.FastaRecord) error {
+func decodeFastaCacheFile(cacheFileName string, fastaRecordChunksChan chan<- *pools.FastaRecordChunk, config *models.PatternConfig) error {
 	cacheFile, err := os.Open(cacheFileName)
 	if err != nil {
 		return err
@@ -137,17 +168,17 @@ func decodeFastaCacheFile(cacheFileName string, fastaRecordsChan chan<- *pools.F
 			currentEntry.Release()
 			return err
 		}
-		fastaRecordsChan <- currentEntry
+		sendInChunks(fastaRecordChunksChan, currentEntry, CHUNK_SIZE, config)
 	}
 	return nil
 }
 
 // first decode or not then parse and encode
-func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize int, fastaRecordsChan chan<- *pools.FastaRecord) error {
+func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize int, fastaRecordChunksChan chan<- *pools.FastaRecordChunk, config *models.PatternConfig) error {
 	cacheFileName := utils.GetCacheFileName(cacheDir, fileName)
 
 	if !utils.IsFileModifiedAfterCaching(cacheFileName, fileName) {
-		if err := decodeFastaCacheFile(cacheFileName, fastaRecordsChan); err == nil {
+		if err := decodeFastaCacheFile(cacheFileName, fastaRecordChunksChan, config); err == nil {
 			return nil
 		}
 
@@ -155,7 +186,7 @@ func ParseFastaFileOrDecodeCache(fileName string, cacheDir string, bufferSize in
 	}
 
 	// Either cache file doesn't exist or decoding failed
-	return parseAndEncodeFastaFile(fileName, cacheDir, bufferSize, fastaRecordsChan)
+	return parseAndEncodeFastaFile(fileName, cacheDir, bufferSize, fastaRecordChunksChan, config)
 }
 
 // -------

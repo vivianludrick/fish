@@ -26,3 +26,29 @@ func (fe *FastaRecord) Release() {
 func NewFastaRecord() *FastaRecord {
 	return FastaRecordPool.Get().(*FastaRecord)
 }
+
+type FastaRecordChunk struct {
+	Header   string
+	Sequence []byte
+	Offset   int
+}
+
+var FastaRecordChunkPool = sync.Pool{
+	New: func() any {
+		return &FastaRecordChunk{
+			Sequence: make([]byte, 0, 1024*8),
+		}
+	},
+}
+
+// Release the FastaRecord back to the pool
+func (fe *FastaRecordChunk) Release() {
+	fe.Header = ""
+	fe.Sequence = fe.Sequence[:0]
+	FastaRecordChunkPool.Put(fe)
+}
+
+// Get a new FastaRecord from the pool
+func NewFastaRecordChunk() *FastaRecordChunk {
+	return FastaRecordChunkPool.Get().(*FastaRecordChunk)
+}

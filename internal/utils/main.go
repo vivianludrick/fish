@@ -20,7 +20,7 @@ func PrintPattern(pattern []uint64) {
 	fmt.Println(str)
 }
 
-func DebugPrint(label string, data any) {
+func DebugPrintln(label string, data any) {
 	if os.Getenv("DEBUG") != "true" {
 		return
 	}

@@ -31,7 +31,7 @@ func init() {
 
 func SegmentAndEncodePattern(pattern string, config *models.PatternConfig) ([]uint64, error) {
 	if len(pattern) != config.TotalSize {
-		return nil, errors.New("Target PAM sequence must be exactly %d nucleotides, got %d")
+		return nil, errors.New("Target PAM sequence must be exactly " + strconv.Itoa(config.TotalSize) + " nucleotides; got " + strconv.Itoa(len(pattern)))
 	}
 
 	segments := make([]uint64, len(config.Segments))
