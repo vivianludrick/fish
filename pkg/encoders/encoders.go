@@ -41,7 +41,7 @@ func ValidateAndEncodeConfig(config *models.NewPatternSearchConfig) (*models.New
 		internalSegmentTolerance.Lengths = append(internalSegmentTolerance.Lengths, overFlowlength)
 
 		for _, variant := range segment.AllowedVariants {
-			var lengthPassedSoFar uint
+			var lengthPassedSoFar int
 			var encodedVariants []uint64
 			for _, length := range internalSegmentTolerance.Lengths {
 				var encodedVariantSegment uint64
@@ -58,7 +58,7 @@ func ValidateAndEncodeConfig(config *models.NewPatternSearchConfig) (*models.New
 	}
 
 	for _, guideSequence := range config.GuideSequences {
-		var lengthPassedSoFar uint
+		var lengthPassedSoFar int
 		var encodedGuide []uint64        // 00000ATGC
 		var encodedreverseGuide []uint64 // 0000CGTA
 		for _, segment := range internalPSC.SegmentSpec {

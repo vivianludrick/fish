@@ -8,21 +8,21 @@ type NewInternalPatternSearchConfig struct {
 	TargetFilePath           string     // the fasta file path of the genome they are targetting
 	NewInternalToleranceSpec            // fill from the preset variant
 	SelectedBenchmarks       []BenchmarkAlgorithm
-	AllowedNs                uint
+	AllowedNs                int
 }
 
 type NewInternalToleranceSpec struct {
 	SegmentSpec        []*NewInternalSegmentTolerance // Individual sub-regions of the pattern (e.g., core, suffix, PAM)
-	MaxTotalMismatches uint                           // Maximum mismatches allowed across all pattern regions
-	TotalGuideLength   uint                           // Total length of the full pattern to match
+	MaxTotalMismatches int                            // Maximum mismatches allowed across all pattern regions
+	TotalGuideLength   int                            // Total length of the full pattern to match
 }
 
 type NewInternalSegmentTolerance struct {
 	// either length or lengths
-	Lengths []uint
+	Lengths []int
 
 	// either mismatches or variants
-	AllowedMismatches uint
+	AllowedMismatches int
 	AllowedVariants   [][]uint64
 	// TODO: Add the reverse complement of the variants
 }

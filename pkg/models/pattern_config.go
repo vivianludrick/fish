@@ -11,19 +11,19 @@ type NewPatternSearchConfig struct {
 	ToleranceSpec      *NewToleranceSpec // Pattern matching criteria and constraints
 	PresetVariant      PresetVariant     // custom/sp-cas9, or other variants
 	SelectedBenchmarks []string          //mitscore, doench, etc
-	AllowedNs          uint              // 0 if no Ns allowed
+	AllowedNs          int               // 0 if no Ns allowed
 }
 
 type NewToleranceSpec struct {
 	SegmentSpec        []NewSegmentTolerance // Individual sub-regions of the pattern (e.g., core, suffix, PAM)
-	MaxTotalMismatches uint                  // Maximum mismatches allowed across all pattern regions
-	TotalGuideLength   uint                  // Total length of the full pattern to match
+	MaxTotalMismatches int                   // Maximum mismatches allowed across all pattern regions
+	TotalGuideLength   int                   // Total length of the full pattern to match
 }
 
 type NewSegmentTolerance struct {
-	Length uint
+	Length int
 	// either mismatches or variants
-	AllowedMismatches uint
+	AllowedMismatches int
 	AllowedVariants   []string
 }
 
@@ -65,7 +65,7 @@ func (config *NewPatternSearchConfig) Validate() error {
 	}
 
 	// Validate that segment lengths match total guide length
-	var totalSegmentsLength uint
+	var totalSegmentsLength int
 	for _, segment := range config.ToleranceSpec.SegmentSpec {
 		totalSegmentsLength += segment.Length
 	}
@@ -77,7 +77,7 @@ func (config *NewPatternSearchConfig) Validate() error {
 	// verify that each variant length is equal to the length of that segment
 	for _, segment := range config.ToleranceSpec.SegmentSpec {
 		for _, variant := range segment.AllowedVariants {
-			if uint(len(variant)) != segment.Length {
+			if len(variant) != segment.Length {
 				return fmt.Errorf("invalid config: The variant %v doesn't match the length specified for that segment", variant)
 			}
 		}
@@ -85,7 +85,7 @@ func (config *NewPatternSearchConfig) Validate() error {
 
 	// verify that the guide sequence and the totalLength match
 	for _, guideSequence := range config.GuideSequences {
-		if uint(len(guideSequence)) != config.ToleranceSpec.TotalGuideLength {
+		if len(guideSequence) != config.ToleranceSpec.TotalGuideLength {
 			return fmt.Errorf("invalid config: The guide sequence %v doesn't match the total guide length specified", guideSequence)
 		}
 	}
