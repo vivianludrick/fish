@@ -39,3 +39,7 @@ func DebugRun(label string, fn func()) {
 	fmt.Println("--------------------------------------------------------")
 	fn()
 }
+
+func Prepend[Type any](slice []Type, elems ...Type) []Type {
+	return append(elems, slice...)
+}

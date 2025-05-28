@@ -3,31 +3,9 @@ package encoders
 import (
 	"errors"
 	"strconv"
+	"vivalchemy/cris/internal/bitmaps"
 	"vivalchemy/cris/pkg/models"
 )
-
-var bitMapArray [256]uint64
-var reverseBitMapArray [16]byte
-
-func init() {
-	// Initialize lookup arrays
-	bitMapArray['A'] = 0x8 // 1000
-	bitMapArray['C'] = 0x4 // 0100
-	bitMapArray['G'] = 0x2 // 0010
-	bitMapArray['T'] = 0x1 // 0001
-	bitMapArray['N'] = 0xF // 1111 (ambiguous nucleotide)
-	bitMapArray['a'] = 0x8 // Support lowercase
-	bitMapArray['c'] = 0x4
-	bitMapArray['g'] = 0x2
-	bitMapArray['t'] = 0x1
-	bitMapArray['n'] = 0xF
-
-	reverseBitMapArray[0x8] = 'A'
-	reverseBitMapArray[0x4] = 'C'
-	reverseBitMapArray[0x2] = 'G'
-	reverseBitMapArray[0x1] = 'T'
-	reverseBitMapArray[0xF] = 'N'
-}
 
 func SegmentAndEncodePattern(pattern string, config *models.PatternConfig) ([]uint64, error) {
 	if len(pattern) != config.TotalSize {
@@ -51,7 +29,7 @@ func SegmentAndEncodePattern(pattern string, config *models.PatternConfig) ([]ui
 
 		for range segment.Size {
 			nucleotide := pattern[position]
-			mapped := bitMapArray[nucleotide]
+			mapped := bitmaps.NucleotideToBitMap[nucleotide]
 			if mapped == 0 {
 				return nil, errors.New("Invalid nucleotide in target PAM sequence at position " + strconv.Itoa(position))
 			}

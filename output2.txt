@@ -1,0 +1,1018 @@
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTAGTTGGAGAGGGTCCTGATGG
+2375137
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTAGTAGGAGACTTTGGTTATGG
+10369379
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+TTTATAGTAGAGTATGATTATGG
+23703473
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42811892
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812107
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812332
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812377
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812422
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812467
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42812512
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812557
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812602
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42812781
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42812826
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42812915
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42812959
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42813049
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42813184
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42813444
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42813714
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42813804
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42813894
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42813939
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42814118
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42814163
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42814252
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42814296
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42814386
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42814521
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42814566
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42814656
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42814701
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42814746
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42814879
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42814924
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42815013
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42815057
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42815147
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42815236
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42815281
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42815370
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42815414
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42815639
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42815684
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42815909
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42815953
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGCTGAGGG
+42816043
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42816133
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42816267
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42816357
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42816446
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42816491
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42816626
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42816671
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGTGAGTATGGTGAAGG
+42816851
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42816895
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGCTGAGGG
+42816940
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAGAGTATGGTGAAGG
+42817120
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42817209
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42817254
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42817343
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42817478
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42817523
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGTGAGTATGGTGAAGG
+42817658
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42817702
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGCTGAGGG
+42817792
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42817970
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818015
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818104
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42818148
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818238
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42818373
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42818508
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818553
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818598
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42818731
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818821
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42818910
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42818955
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42819044
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGCAGAGTATGGTGAGGG
+42819088
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42819178
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42819313
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42819358
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42819583
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42819627
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGCTGAGGG
+42819717
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42819942
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42820032
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42820121
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42820166
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42820301
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42820346
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42820391
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGTGAGTATGGTGAAGG
+42820526
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42820570
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGCTGAGGG
+42820660
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGTTGAGGG
+42820840
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42820884
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAGAGTATGGTGAAGG
+42820929
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42821018
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42821063
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42821152
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42821197
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42821332
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42821377
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42821422
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGTGAGTATGGTGAAGG
+42821557
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42821601
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42821645
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGCTGAGGG
+42821735
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGTTGAGGG
+42821915
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42821959
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAGAGTATGGTGAAGG
+42822004
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42822183
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42822228
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTGTTAGGAGAGTATGGTGAAGG
+42822273
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42822318
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42822408
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42822543
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42822722
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGTTGAGGG
+42822813
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGCATGCTGAGGG
+42822948
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42823038
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42823128
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42823263
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42823533
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42823576
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42823666
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42823711
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTATTAGGGGAGTATGTTGAGGG
+42823801
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42823845
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAGAGTATGGTGAAGG
+42823890
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42824069
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42824203
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42824248
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTGTTAGGAGAGTATGGTGAAGG
+42824293
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42824428
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42824563
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42824742
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGTTGAGGG
+42824833
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGCATGCTGAGGG
+42824968
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825058
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42825148
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825193
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825283
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42825553
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825596
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825686
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825731
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTATTAGGGGAGTATGGTGAGGG
+42825821
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42825866
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAGAGTATGGTGAAGG
+42825911
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42825956
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAAAGTATGGTGAAGG
+42826089
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42826446
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42826491
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42826536
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42826626
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42826671
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAAGG
+42826806
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42826941
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGAAAGTATGGTGAGGG
+42826986
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+GTATTAGGGGAGTATGGTGAGGG
+42827121
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTGATATGAGAGTATGACTATGG
+55351054
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTGATATGAGAGTATGACTATGG
+55355687
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+AAAATAGGAGACTATGCTGTAGG
+64176938
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+TTAATTGAAGAGTATACTGAAGG
+64734709
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTAATTGTATAATATGGTGATGG
+70312213
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTAATATGGGATTTTGCTAATGG
+87325958
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGTACAGTGTCCTCATGG
+124170719
+NC_059442.1 Salmo salar chromosome ssa01, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGCTGAATATGCTAATGG
+147431337
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+CTAGTATTAGAGAATGCTGACGG
+2854831
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+TTAACAGGAGAGTATGGAGCTGG
+6548094
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGAGGGTGTGGTGTAGG
+7549909
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+CTCCTGGCAGAGTATGCTGAGGG
+57292384
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+CTCCTGGCAGAGTATGCTGAGGG
+57350829
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+CTCCTGGCAGAGTATGCTGAGGG
+57384127
+NC_059443.1 Salmo salar chromosome ssa02, Ssal_v3.1, whole genome shotgun sequence
+CTCAAAGGAGACTATGCTGAAGG
+63141944
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1370175
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1370975
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1371487
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1372543
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1373055
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1375855
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1376623
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1377135
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1378175
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGAACAGGAGGCTGATGG
+1378687
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+ATAAAAGGGGAGTCTGCTGAAGG
+14524776
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGAAGGTTATGATGATGG
+23276192
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+GAAAGAGCAGAGTATGCTCATGG
+51992381
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTAGTAGGAGGATAGGCTGTTGG
+53618529
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTGTTAGGACAGTATGCAAATGG
+57406907
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTAATAAGAGAGGAAGATGAGGG
+62476949
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGATAGCCTGCTAGTGG
+69972168
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+GTTATAGGATAGTATGTAGATGG
+73311816
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+GTTATAGGATAGTATGTAGATGG
+73312617
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+GTTATAGGATAGTATGTAGATGG
+73312677
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+TTTATAGGATAGTATGTAGATGG
+73312947
+NC_059444.1 Salmo salar chromosome ssa03, Ssal_v3.1, whole genome shotgun sequence
+GTTATAGGATAGTATGTAGATGG
+73313581
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+ATACTAGGGGAGAATTCTGATGG
+17499982
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGTGTCTGTGCTGATGG
+31393321
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGACAGGATTCACATGG
+37177198
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+ATCATAGTAGAGTTTCCTGATGG
+63645828
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+TTAAAATGAGAGTAGTCTGATGG
+74391768
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85133909
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85133953
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85134085
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85134173
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85134239
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85134283
+NC_059445.1 Salmo salar chromosome ssa04, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGCTAGTAAGCTAATGG
+85134349
+NC_059446.1 Salmo salar chromosome ssa05, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGGAGTGTATGATTAAGG
+28585553
+NC_059446.1 Salmo salar chromosome ssa05, Ssal_v3.1, whole genome shotgun sequence
+CTGATTGGAGAGAGAGCTGATGG
+28652195
+NC_059446.1 Salmo salar chromosome ssa05, Ssal_v3.1, whole genome shotgun sequence
+TTAATAGCAGAATTTGCTTATGG
+34519961
+NC_059446.1 Salmo salar chromosome ssa05, Ssal_v3.1, whole genome shotgun sequence
+CAAATAGCAGAGTAGACTGCTGG
+57105327
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8984954
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985060
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985113
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985166
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985219
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985272
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985325
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985378
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985431
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985484
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985537
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985590
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985643
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985696
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985802
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8985908
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986014
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986067
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986120
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986173
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986226
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986279
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTACTGAGAGAGGATGCTGAGGG
+8986332
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTCATCGGATAGAATGCTGTTGG
+38459057
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+GTAAAAGGATAGTATGCTGCTGG
+40579077
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTAACAGTGGAGGCTGCTGATGG
+46363953
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTAATTGCAGAGTTTTCTGAAGG
+49373843
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTGAAAGGTGAGTATAGTGATGG
+55142490
+NC_059447.1 Salmo salar chromosome ssa06, Ssal_v3.1, whole genome shotgun sequence
+CTAAGTGGAGTGTCTGCTGTTGG
+78985545
+NC_059448.1 Salmo salar chromosome ssa07, Ssal_v3.1, whole genome shotgun sequence
+CTTGTACGAGAGAATGCTAATGG
+9967912
+NC_059448.1 Salmo salar chromosome ssa07, Ssal_v3.1, whole genome shotgun sequence
+CTAGTAGGACAGGATGATGATGG
+21682028
+NC_059448.1 Salmo salar chromosome ssa07, Ssal_v3.1, whole genome shotgun sequence
+ATTGTAGGAGAGCATGATGATGG
+21972168
+NC_059448.1 Salmo salar chromosome ssa07, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGCACAGTGTCCTGATGG
+42973138
+NC_059448.1 Salmo salar chromosome ssa07, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGACAGTGGGATGATGG
+55149562
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGAGCCTGGGCTGCTGG
+9958330
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+GTAGTAGCAGAGGAGGCTGATGG
+60598121
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGGAGTGTATGATTAAGG
+62089572
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTCATGGGTGAGCAGGCTGATGG
+63824532
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTAATTGGTCAGTGTGCTGTTGG
+72694634
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+TTAAGAGGAGAGGATGGAGATGG
+81264146
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTAATATGAGAAAATGTTAATGG
+86681076
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGTAGAGGATGCAGATGG
+116848368
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGATTGTATTCACATGG
+120433460
+NC_059450.1 Salmo salar chromosome ssa09, Ssal_v3.1, whole genome shotgun sequence
+CTCATTGTAGAGTAGGCTGTTGG
+131260592
+NC_059451.1 Salmo salar chromosome ssa10, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGTGATTATCCAGCTGG
+44790077
+NC_059451.1 Salmo salar chromosome ssa10, Ssal_v3.1, whole genome shotgun sequence
+CTAAGACGAGAGTGCTCTGATGG
+70184726
+NC_059451.1 Salmo salar chromosome ssa10, Ssal_v3.1, whole genome shotgun sequence
+TTAATAAGGGAGAATGCTGAGGG
+88855372
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGCAAAGCAGGCTAATGG
+4096970
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+TTTATAGGATAGTATGCACATGG
+5869219
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CTAAGAGAAGAGGATTCTGAGGG
+17658472
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+GTGATTGGAGAGAATGCTGATGG
+18344859
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CTGATATGAGAGGCCGCTGATGG
+27558924
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CTCAGGGGAGAGAATACTGATGG
+56829071
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+GAAAGAGCAGAGTATGCTCATGG
+73387659
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGTAGTGTATACTAATGG
+75822071
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CTTATGGGAGAGTATTCGGCTGG
+84081531
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+CCAATAGGAGAGGACCATGATGG
+86841228
+NC_059452.1 Salmo salar chromosome ssa11, Ssal_v3.1, whole genome shotgun sequence
+GTAAAAGGATAGCATGCTGAAGG
+90825624
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+AGAGTAGGGGAGTATGCTAATGG
+29495313
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+CTCCTAGCAGAGTATGCTGAGGG
+29883482
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGCGTGTATTTAGATGG
+43685560
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+CTAAGAGTGTAGTATCCTGATGG
+55322282
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+GGAATAGCAGAGGAGGCTGATGG
+71896958
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+ATAATAGGATAGAATGCTGTGGG
+72232584
+NC_059453.1 Salmo salar chromosome ssa12, Ssal_v3.1, whole genome shotgun sequence
+ATAATAGGAGATAATGAAGATGG
+76978830
+NC_059454.1 Salmo salar chromosome ssa13, Ssal_v3.1, whole genome shotgun sequence
+GTAATCGGAGGCTTTGCTGATGG
+60422111
+NC_059454.1 Salmo salar chromosome ssa13, Ssal_v3.1, whole genome shotgun sequence
+CTACCTGGAGAGTAAGCTGCTGG
+85035777
+NC_059454.1 Salmo salar chromosome ssa13, Ssal_v3.1, whole genome shotgun sequence
+CCAATTGGATGGTATGCTGCTGG
+105379896
+NC_059454.1 Salmo salar chromosome ssa13, Ssal_v3.1, whole genome shotgun sequence
+CTAAAAGGTGAGTGTACTGCTGG
+110053049
+NC_059455.1 Salmo salar chromosome ssa14, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGGAGTGTGTTCTAATGG
+49965384
+NC_059455.1 Salmo salar chromosome ssa14, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGGAGTGTGTTCTAATGG
+49966406
+NC_059455.1 Salmo salar chromosome ssa14, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGGAGTGTGTTCTAATGG
+49968807
+NC_059456.1 Salmo salar chromosome ssa15, Ssal_v3.1, whole genome shotgun sequence
+GAAAGAGCAGAGTATGCTCATGG
+36227655
+NC_059456.1 Salmo salar chromosome ssa15, Ssal_v3.1, whole genome shotgun sequence
+CTAACAGGGGAGGCTGCTGAGGG
+45090435
+NC_059456.1 Salmo salar chromosome ssa15, Ssal_v3.1, whole genome shotgun sequence
+ATAAGGGGAGAGGATGCTGATGG
+65235849
+NC_059456.1 Salmo salar chromosome ssa15, Ssal_v3.1, whole genome shotgun sequence
+TTCAGAGGAGGGTAGGCTGATGG
+89510756
+NC_059457.1 Salmo salar chromosome ssa16, Ssal_v3.1, whole genome shotgun sequence
+CTAACAGGAGAGTATGTCCAGGG
+8699367
+NC_059457.1 Salmo salar chromosome ssa16, Ssal_v3.1, whole genome shotgun sequence
+CTTATGGGAGAGTAGCCAGATGG
+15926814
+NC_059457.1 Salmo salar chromosome ssa16, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGGAGAGGATTCTGGAGG
+38289933
+NC_059457.1 Salmo salar chromosome ssa16, Ssal_v3.1, whole genome shotgun sequence
+CTATTAAGACATTATGCTGGTGG
+51425085
+NC_059457.1 Salmo salar chromosome ssa16, Ssal_v3.1, whole genome shotgun sequence
+CCAATTGTACAGTATGCTCATGG
+65196325
+NC_059457.1 Salmo salar chromosome ssa16, Ssal_v3.1, whole genome shotgun sequence
+CTTACAGGAGAGAAAGATGATGG
+68411254
+NC_059458.1 Salmo salar chromosome ssa17, Ssal_v3.1, whole genome shotgun sequence
+CTTACAGGAGAGAAAGATGATGG
+15087134
+NC_059458.1 Salmo salar chromosome ssa17, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGCACAGTGTCCTGATGG
+58312964
+NC_059458.1 Salmo salar chromosome ssa17, Ssal_v3.1, whole genome shotgun sequence
+GTAATAGGACAGTGGGATGATGG
+72420139
+NC_059459.1 Salmo salar chromosome ssa18, Ssal_v3.1, whole genome shotgun sequence
+CTACTATGAGAACATGCTGCTGG
+7308776
+NC_059459.1 Salmo salar chromosome ssa18, Ssal_v3.1, whole genome shotgun sequence
+CAAATAGGAGAGGATGGTACTGG
+60980484
+NC_059460.1 Salmo salar chromosome ssa19, Ssal_v3.1, whole genome shotgun sequence
+AGAGAAGGAGAGTATGCAGATGG
+3372616
+NC_059460.1 Salmo salar chromosome ssa19, Ssal_v3.1, whole genome shotgun sequence
+CTAATCGAAGAGAATTCTTATGG
+10876626
+NC_059460.1 Salmo salar chromosome ssa19, Ssal_v3.1, whole genome shotgun sequence
+CTAACAGTAGAGAGTGCTGAAGG
+26238186
+NC_059460.1 Salmo salar chromosome ssa19, Ssal_v3.1, whole genome shotgun sequence
+CAATGAGGAGACTGTGCTGATGG
+44669665
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+CAAAGAGGAGAGGAAGATGATGG
+4125273
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+CTAATTGGAGATCATCCTGAAGG
+12936655
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+CTAATGGGAGAGTATCCTCATGG
+14520326
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+ATAATAGGAAAGTTCGCTAATGG
+18127679
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+TTTATAGTAGAGTATCCAGATGG
+24676270
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+CTAAAAAGAGAGTATTCTATTGG
+37237965
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+CTAACAGGAGTGTATGATGACGG
+41389029
+NC_059461.1 Salmo salar chromosome ssa20, Ssal_v3.1, whole genome shotgun sequence
+CTGATAGGAAAGGACGCGGATGG
+50036743
+NC_059462.1 Salmo salar chromosome ssa21, Ssal_v3.1, whole genome shotgun sequence
+TTAACAGGATAGAATGATGATGG
+7512300
+NC_059462.1 Salmo salar chromosome ssa21, Ssal_v3.1, whole genome shotgun sequence
+CTAATTGGACAATATGGTGCTGG
+17403896
+NC_059462.1 Salmo salar chromosome ssa21, Ssal_v3.1, whole genome shotgun sequence
+CAAAGAGGTGAGTCTGCTGCTGG
+19439642
+NC_059462.1 Salmo salar chromosome ssa21, Ssal_v3.1, whole genome shotgun sequence
+CTGTTGGAAGAGTGTGCTGATGG
+49979871
+NC_059463.1 Salmo salar chromosome ssa22, Ssal_v3.1, whole genome shotgun sequence
+CCCATAGGAGAGTATGCAATTGG
+3623051
+NC_059463.1 Salmo salar chromosome ssa22, Ssal_v3.1, whole genome shotgun sequence
+CTAATATGGGAGTTTGTTAATGG
+40985201
+NC_059464.1 Salmo salar chromosome ssa23, Ssal_v3.1, whole genome shotgun sequence
+GTAGTATGAGAGTATACTTATGG
+9717894
+NC_059464.1 Salmo salar chromosome ssa23, Ssal_v3.1, whole genome shotgun sequence
+GAAAGAGCAGAGTATGCTCATGG
+25212271
+NC_059464.1 Salmo salar chromosome ssa23, Ssal_v3.1, whole genome shotgun sequence
+CTGATATCATAGTGTGCTGATGG
+42516815
+NC_059464.1 Salmo salar chromosome ssa23, Ssal_v3.1, whole genome shotgun sequence
+CTGATGGCATAGTGTGCTGATGG
+42516831
+NC_059465.1 Salmo salar chromosome ssa24, Ssal_v3.1, whole genome shotgun sequence
+CTGCTAGCATAGTATGCTAATGG
+2970217
+NC_059466.1 Salmo salar chromosome ssa25, Ssal_v3.1, whole genome shotgun sequence
+CTAATCTGAGAGGATATTGATGG
+23526776
+NC_059467.1 Salmo salar chromosome ssa26, Ssal_v3.1, whole genome shotgun sequence
+CTAAGAGAAGAGGATTCTGAGGG
+17941313
+NC_059467.1 Salmo salar chromosome ssa26, Ssal_v3.1, whole genome shotgun sequence
+CTGATTGGAGAGAATGCTGTTGG
+18687239
+NC_059469.1 Salmo salar chromosome ssa28, Ssal_v3.1, whole genome shotgun sequence
+TAAATAGTGGAGTATGGTGATGG
+16376040
+NC_059469.1 Salmo salar chromosome ssa28, Ssal_v3.1, whole genome shotgun sequence
+CTAATAGGGGAGAAATCTGAGGG
+23482280
+NC_059469.1 Salmo salar chromosome ssa28, Ssal_v3.1, whole genome shotgun sequence
+CTACTATCGGAGTATCCTGATGG
+39434559
+NW_025547589.1 Salmo salar unplaced genomic scaffold, Ssal_v3.1, whole genome shotgun sequence
+CTCCTGGCAGAGTATGCTGAGGG
+38910
+NW_025547865.1 Salmo salar unplaced genomic scaffold, Ssal_v3.1, whole genome shotgun sequence
+CTAGTATTAGAGAATGCTGACGG
+7418
+NW_025547936.1 Salmo salar unplaced genomic scaffold, Ssal_v3.1, whole genome shotgun sequence
+CTCATAGGAGAGTCTTCATATGG
+20777
+NW_025547936.1 Salmo salar unplaced genomic scaffold, Ssal_v3.1, whole genome shotgun sequence
+CTCATAGGACAGTATTCATATGG
+23854
+NW_025549937.1 Salmo salar unplaced genomic scaffold, Ssal_v3.1, whole genome shotgun sequence
+CTAATTCCATAGTATTCTGATGG
+234076
+NW_025550610.1 Salmo salar unplaced genomic scaffold, Ssal_v3.1, whole genome shotgun sequence
+GTAGTAGTAGAGTATGGTGGTGG
+4092
+Parse FASTA File took 50.66243845s
