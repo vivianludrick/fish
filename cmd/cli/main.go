@@ -54,6 +54,28 @@ func main() {
 	}
 	utils.DebugPrintln("Target Pattern:", targetPattern)
 
+	// New Config
+
+	config := models.NewPatternSearchConfig{
+		GuideSequences: []string{
+			"AGCTGATCGTAGCTAGCTGATCT",
+			"CGTAGCTAGCTAGGCTAGCTAGT",
+		},
+		TargetGenome: models.GenomeDanioRerio,
+		SelectedBenchmarks: []string{
+			"mitscore",
+			"doench",
+		},
+		SearchVariant: models.SearchVariantSpCas9,
+		AllowedNs:     0,
+		ToleranceSpec: nil,
+	}
+	interalConfig, err := encoders.ValidateAndEncodeConfig(&config)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	var processorWg sync.WaitGroup
 	var parserWg sync.WaitGroup
 
@@ -64,7 +86,7 @@ func main() {
 	parserWg.Add(1)
 	go utils.TimeFunction("Parse FASTA File", func() {
 		defer close(fastaRecordChunksChan)
-		parsers.ParseFastaFileOrDecodeCache(TARGET_FILE, CACHE_DIR, BUFFER_SIZE, fastaRecordChunksChan, patternConfig)
+		parsers.ParseFastaFileOrDecodeCache(interalConfig, fastaRecordChunksChan)
 		parserWg.Done()
 	})
 
