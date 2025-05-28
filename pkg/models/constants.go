@@ -9,25 +9,29 @@ package models
 type Genome string
 
 const (
-	DanioRerio     Genome = "danio-rerio"
-	AtlanticSalmon Genome = "atlantic-salmon"
+	GenomeDanioRerio     Genome = "danio-rerio"
+	GenomeHilsa          Genome = "hilsa"
+	GenomeAtlanticSalmon Genome = "atlantic-salmon"
+	GenomeTest           Genome = "test" // TODO: remove this
 )
 
 // relate the genomes to their fastafile paths
 var AvailableGenomes = map[Genome]string{
-	DanioRerio:     "./genome/danio-rerio",
-	AtlanticSalmon: "./genomes/atlantic-salmon",
+	GenomeDanioRerio:     "./genomes/GCA_000002035.4_GRCz11_genomic.fna",
+	GenomeHilsa:          "./genomes/GCA_015244755.2_TenIli1.0_genomic.fna",
+	GenomeAtlanticSalmon: "./genomes/GCF_905237065.1_Ssal_v3.1_genomic.fna",
+	GenomeTest:           "./input.fna", // TODO: remove this
 }
 
-type PresetVariant string
+type SearchVariant string
 
 const (
-	SpCas9 PresetVariant = "sp-cas9"
-	Custom PresetVariant = "custom"
+	SearchVariantSpCas9 SearchVariant = "sp-cas9"
+	SearchVariantCustom SearchVariant = "custom"
 )
 
-var PresetVariants = map[PresetVariant]NewToleranceSpec{
-	SpCas9: {
+var PresetVariants = map[SearchVariant]NewToleranceSpec{
+	SearchVariantSpCas9: {
 		SegmentSpec: []NewSegmentTolerance{
 			{
 				Length:            10,
@@ -46,17 +50,17 @@ var PresetVariants = map[PresetVariant]NewToleranceSpec{
 		MaxTotalMismatches: 4,
 		TotalGuideLength:   23,
 	},
-	Custom: {}, // empty since the tolerance spec will be provided
+	SearchVariantCustom: {}, // empty since the tolerance spec will be provided
 }
 
-type BenchmarkAlgorithm int
+type ScoringAlgorithm int
 
 const (
-	Mitscore BenchmarkAlgorithm = iota
-	Doench
+	ScoringMIT ScoringAlgorithm = iota
+	ScoringDoench
 )
 
-var BenchmarkAlgorithms = map[string]BenchmarkAlgorithm{
-	"mitscore": Mitscore,
-	"doench":   Doench,
+var ScoringAlgorithms = map[string]ScoringAlgorithm{
+	"mitscore": ScoringMIT,
+	"doench":   ScoringDoench,
 }

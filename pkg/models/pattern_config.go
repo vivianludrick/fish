@@ -9,7 +9,7 @@ type NewPatternSearchConfig struct {
 	GuideSequences     []string          // Guide sequences to search in the genome
 	TargetGenome       Genome            // the genome they are targetting
 	ToleranceSpec      *NewToleranceSpec // Pattern matching criteria and constraints
-	PresetVariant      PresetVariant     // custom/sp-cas9, or other variants
+	SearchVariant      SearchVariant     // custom/sp-cas9, or other variants
 	SelectedBenchmarks []string          //mitscore, doench, etc
 	AllowedNs          int               // 0 if no Ns allowed
 }
@@ -34,8 +34,8 @@ func (config *NewPatternSearchConfig) Validate() error {
 	if _, ok := AvailableGenomes[config.TargetGenome]; !ok {
 		return fmt.Errorf("invalid config: the genome is not avaible in our database")
 	}
-	if config.PresetVariant != Custom {
-		val, ok := PresetVariants[config.PresetVariant]
+	if config.SearchVariant != SearchVariantCustom {
+		val, ok := PresetVariants[config.SearchVariant]
 		if !ok {
 			return fmt.Errorf("invalid config: invalid preset variant")
 		}
@@ -59,7 +59,7 @@ func (config *NewPatternSearchConfig) Validate() error {
 	}
 
 	for _, benchmarkAlgorithm := range config.SelectedBenchmarks {
-		if _, ok := BenchmarkAlgorithms[benchmarkAlgorithm]; !ok {
+		if _, ok := ScoringAlgorithms[benchmarkAlgorithm]; !ok {
 			return fmt.Errorf("invalid config: invalid benchmark algorithm: %v", benchmarkAlgorithm)
 		}
 	}

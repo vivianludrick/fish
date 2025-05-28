@@ -7,7 +7,7 @@ type NewInternalPatternSearchConfig struct {
 	ReverseGuideSequences    [][]uint64 // Guide sequences to search in the genome
 	TargetFilePath           string     // the fasta file path of the genome they are targetting
 	NewInternalToleranceSpec            // fill from the preset variant
-	SelectedBenchmarks       []BenchmarkAlgorithm
+	SelectedBenchmarks       []ScoringAlgorithm
 	AllowedNs                int
 }
 
@@ -34,13 +34,13 @@ func NewNewInternalPatternSearchConfig(guideSequencesLength int) *NewInternalPat
 		NewInternalToleranceSpec: NewInternalToleranceSpec{
 			SegmentSpec: make([]*NewInternalSegmentTolerance, 0),
 		},
-		SelectedBenchmarks: make([]BenchmarkAlgorithm, 0),
+		SelectedBenchmarks: make([]ScoringAlgorithm, 0),
 	}
 }
 
 func NewNewInternalSegmentTolerance() *NewInternalSegmentTolerance {
 	return &NewInternalSegmentTolerance{
-		Lengths:         make([]uint, 0, 1),  // there will be atleast on length
+		Lengths:         make([]int, 0, 1),   // there will be atleast on length
 		AllowedVariants: make([][]uint64, 0), // there is a possibility that there are no variants
 	}
 }

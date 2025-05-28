@@ -21,7 +21,7 @@ func ValidateAndEncodeConfig(config *models.NewPatternSearchConfig) (*models.New
 
 	for _, benchMark := range config.SelectedBenchmarks {
 		// validation for benchmark is already done
-		val, _ := models.BenchmarkAlgorithms[benchMark]
+		val, _ := models.ScoringAlgorithms[benchMark]
 		internalPSC.SelectedBenchmarks = append(internalPSC.SelectedBenchmarks, val)
 	}
 
