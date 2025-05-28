@@ -45,7 +45,7 @@ func NewNewInternalSegmentTolerance() *NewInternalSegmentTolerance {
 	}
 }
 
-func (config *NewInternalPatternSearchConfig) Print() {
+func (config *NewInternalPatternSearchConfig) Println() {
 	fmt.Println("TargetFilePath:", config.TargetFilePath)
 	fmt.Println("AllowedNs:", config.AllowedNs)
 	fmt.Println("SelectedBenchmarks:", config.SelectedBenchmarks)
@@ -72,5 +72,6 @@ func (config *NewInternalPatternSearchConfig) Print() {
 		for _, nucleotide := range reverseGuideSequence {
 			fmt.Printf("%#x", nucleotide)
 		}
+		fmt.Println()
 	}
 }
