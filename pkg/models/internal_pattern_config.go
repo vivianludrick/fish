@@ -45,6 +45,14 @@ func NewNewInternalSegmentTolerance() *NewInternalSegmentTolerance {
 	}
 }
 
+func (config *NewInternalPatternSearchConfig) GetNumberOfSegments() int {
+	totalSegments := 0
+	for _, segment := range config.SegmentSpec {
+		totalSegments += len(segment.Lengths)
+	}
+	return totalSegments
+}
+
 func (config *NewInternalPatternSearchConfig) Println() {
 	fmt.Println("TargetFilePath:", config.TargetFilePath)
 	fmt.Println("AllowedNs:", config.AllowedNs)
