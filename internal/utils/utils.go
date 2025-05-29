@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"vivalchemy/cris/internal/bitmaps"
 )
 
 func TimeFunction(name string, fn func()) {
@@ -42,4 +43,22 @@ func DebugRun(label string, fn func()) {
 
 func Prepend[Type any](slice []Type, elems ...Type) []Type {
 	return append(elems, slice...)
+}
+
+func ReverseComplement(sequence string) string {
+	n := len(sequence)
+	rc := make([]byte, n)
+	for i, r := range sequence {
+		rc[n-1-i] = bitmaps.NucleotideComplementMap[r]
+	}
+	return string(rc)
+}
+
+// Reverse returns a reversed copy of the input slice.
+func Reverse[T any](input []T) []T {
+	reversed := make([]T, len(input))
+	for i, v := range input {
+		reversed[len(input)-1-i] = v
+	}
+	return reversed
 }
