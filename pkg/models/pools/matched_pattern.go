@@ -8,7 +8,7 @@ import (
 // MatchedPattern is a struct that holds the details of the matched pattern
 type MatchedPattern struct {
 	// The index of the guide sequence in the internalConfig with which the pattern
-	// was matched
+	// was matched. Negative values indicate that the guide sequence is reverse complement
 	GuideSequence int `json:"guide_sequence"`
 	// The uint64 representation of the matched pattern segmented based on the
 	// internalConfig segment lengths
@@ -17,8 +17,6 @@ type MatchedPattern struct {
 	Header string `json:"header"`
 	// The offset of the matched pattern in that particular fasta record
 	Offset int `json:"offset"`
-	// Whether the matched pattern is a reverse complement of the guide sequence
-	ReverseComplement bool `json:"reverse_complement"`
 }
 
 var matchedPatternPool = sync.Pool{
@@ -34,7 +32,8 @@ func NewPatternMatch() *MatchedPattern {
 	return matchedPatternPool.Get().(*MatchedPattern)
 }
 
-// SetGuideSequence sets the guide sequence index of the matched pattern
+// SetGuideSequence sets the guide sequence index of the matched pattern.
+// Negative values indicate that the guide sequence is reverse complement
 func (mp *MatchedPattern) SetGuideSequence(guideSequence int) *MatchedPattern {
 	mp.GuideSequence = guideSequence
 	return mp
@@ -55,12 +54,6 @@ func (mp *MatchedPattern) SetHeader(header string) *MatchedPattern {
 // SetOffset sets the offset of the matched pattern
 func (mp *MatchedPattern) SetOffset(offset int) *MatchedPattern {
 	mp.Offset = offset
-	return mp
-}
-
-// SetReverseComplement sets the reverse complement of the matched pattern
-func (mp *MatchedPattern) SetReverseComplement(reverseComplement bool) *MatchedPattern {
-	mp.ReverseComplement = reverseComplement
 	return mp
 }
 

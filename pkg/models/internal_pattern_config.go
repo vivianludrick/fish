@@ -24,7 +24,8 @@ type NewInternalSegmentTolerance struct {
 	// either mismatches or variants
 	AllowedMismatches int
 	AllowedVariants   [][]uint64
-	// TODO: Add the reverse complement of the variants
+
+	AllowedReverseComplementVariants [][]uint64
 }
 
 func NewNewInternalPatternSearchConfig(guideSequencesLength int) *NewInternalPatternSearchConfig {
@@ -40,8 +41,9 @@ func NewNewInternalPatternSearchConfig(guideSequencesLength int) *NewInternalPat
 
 func NewNewInternalSegmentTolerance() *NewInternalSegmentTolerance {
 	return &NewInternalSegmentTolerance{
-		Lengths:         make([]int, 0, 1),   // there will be atleast on length
-		AllowedVariants: make([][]uint64, 0), // there is a possibility that there are no variants
+		Lengths:                          make([]int, 0, 1),   // there will be atleast one length
+		AllowedVariants:                  make([][]uint64, 0), // there is a possibility that there are no variants
+		AllowedReverseComplementVariants: make([][]uint64, 0), // there is a possibility that there are no variants
 	}
 }
 
@@ -65,6 +67,7 @@ func (config *NewInternalPatternSearchConfig) Println() {
 		fmt.Println("Lengths:", segment.Lengths)
 		fmt.Println("AllowedMismatches:", segment.AllowedMismatches)
 		fmt.Println("AllowedVariants:", segment.AllowedVariants)
+		fmt.Println("AllowedReverseComplementVariants:", segment.AllowedReverseComplementVariants)
 	}
 	fmt.Println("GuideSequences:")
 	for _, guideSequence := range config.GuideSequences {

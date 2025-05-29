@@ -8,8 +8,9 @@ import (
 )
 
 type SlidingWindow struct {
-	Segments []uint64 // Array of bit patterns for each segment
-	Config   *models.PatternConfig
+	Segments        []uint64 // Array of bit patterns for each segment
+	ReverseSegments []uint64 // Segmenting the data in reverse order
+	Config          *models.NewInternalPatternSearchConfig
 }
 
 var slidingWindowPool = sync.Pool{
@@ -25,50 +26,51 @@ var stringBuilderPool = sync.Pool{
 	},
 }
 
-func NewSlidingWindow(config *models.PatternConfig) *SlidingWindow {
+func NewSlidingWindow(config *models.NewInternalPatternSearchConfig) *SlidingWindow {
 	sw := slidingWindowPool.Get().(*SlidingWindow)
 	sw.Config = config
-	sw.Segments = make([]uint64, len(config.Segments))
+	sw.Segments = make([]uint64, config.GetNumberOfSegments())
+	sw.ReverseSegments = make([]uint64, config.GetNumberOfSegments())
 	return sw
 }
 
 func (sw *SlidingWindow) Release() {
 	// config will remain constant throughout the runtime hence no need to release it
 	sw.Segments = sw.Segments[:0]
+	sw.ReverseSegments = sw.ReverseSegments[:0]
 	slidingWindowPool.Put(sw)
 }
 
 func (sw *SlidingWindow) AddNucleotide(nucleotide uint64) {
-	segmentCount := len(sw.Config.Segments)
+	segmentCount := len(sw.Segments)
 	var overflowBits uint64 = nucleotide
 
-	// Unrolled loop for better performance when we have exactly 2 segments
-	if segmentCount == 2 {
-		// Process segment 1 (rightmost)
-		segmentSize := sw.Config.Segments[1].Size
-		maxBits := segmentSize * 4
-		mask := (uint64(1) << maxBits) - 1
-		sw.Segments[1] = (sw.Segments[1] << 4) | overflowBits
-		overflowBits = sw.Segments[1] >> maxBits
-		sw.Segments[1] &= mask
-
-		// Process segment 0 (leftmost)
-		segmentSize = sw.Config.Segments[0].Size
-		maxBits = segmentSize * 4
-		mask = (uint64(1) << maxBits) - 1
-		sw.Segments[0] = (sw.Segments[0] << 4) | overflowBits
-		sw.Segments[0] &= mask
-		return
+	// General case for other segment counts
+	for i := len(sw.Config.SegmentSpec) - 1; i >= 0; i-- {
+		for j := len(sw.Config.SegmentSpec[i].Lengths) - 1; j >= 0; j-- {
+			segmentSize := sw.Config.SegmentSpec[i].Lengths[j]
+			maxBits := segmentSize * 4
+			mask := (uint64(1) << maxBits) - 1
+			sw.Segments[segmentCount] = (sw.Segments[segmentCount] << 4) | overflowBits
+			overflowBits = sw.Segments[segmentCount] >> maxBits
+			sw.Segments[segmentCount] &= mask
+			segmentCount--
+		}
 	}
 
-	// General case for other segment counts
-	for i := segmentCount - 1; i >= 0; i-- {
-		segmentSize := sw.Config.Segments[i].Size
-		maxBits := segmentSize * 4
-		mask := (uint64(1) << maxBits) - 1
-		sw.Segments[i] = (sw.Segments[i] << 4) | overflowBits
-		overflowBits = sw.Segments[i] >> maxBits
-		sw.Segments[i] &= mask
+	segmentCount = len(sw.ReverseSegments)
+	overflowBits = nucleotide
+	// take the first length and add it at last
+	for i := range sw.Config.SegmentSpec {
+		for j := range sw.Config.SegmentSpec[i].Lengths {
+			segmentSize := sw.Config.SegmentSpec[i].Lengths[j]
+			maxBits := segmentSize * 4
+			mask := (uint64(1) << maxBits) - 1
+			sw.ReverseSegments[segmentCount] = (sw.ReverseSegments[segmentCount] << 4) | overflowBits
+			overflowBits = sw.ReverseSegments[segmentCount] >> maxBits
+			sw.ReverseSegments[segmentCount] &= mask
+			segmentCount--
+		}
 	}
 }
 
@@ -79,13 +81,14 @@ func (sw *SlidingWindow) GetSequence() string {
 		stringBuilderPool.Put(sb)
 	}()
 
-	for segmentIdx, segment := range sw.Segments[:len(sw.Config.Segments)] {
-		segmentSize := sw.Config.Segments[segmentIdx].Size
-
-		// Convert each nucleotide in the segment (from left to right)
-		for i := segmentSize - 1; i >= 0; i-- {
-			nucleotideBits := (segment >> (i * 4)) & 0xF
-			sb.WriteByte(bitmaps.BitMapToNucleotide[nucleotideBits])
+	segmentIndex := 0
+	for _, segment := range sw.Config.SegmentSpec {
+		for _, subSegmentLength := range segment.Lengths {
+			for i := range subSegmentLength {
+				nucleotideBits := (sw.Segments[segmentIndex] >> (i * 4)) & 0xF
+				sb.WriteByte(bitmaps.BitMapToNucleotide[nucleotideBits])
+				segmentIndex++
+			}
 		}
 	}
 

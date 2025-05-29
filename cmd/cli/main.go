@@ -93,7 +93,7 @@ func main() {
 	for range numWorkers {
 		processorWg.Add(1)
 		go func() {
-			processors.ProcessFastaRecordChunks(targetPattern, patternConfig, fastaRecordChunksChan, matchedPatternChan)
+			processors.ProcessFastaRecordChunks(interalConfig, fastaRecordChunksChan, matchedPatternChan)
 			processorWg.Done()
 		}()
 	}
@@ -102,6 +102,9 @@ func main() {
 		defer close(matchedPatternChan)
 		processorWg.Wait()
 	}()
+	// TODO: Process Results is still left
+	// TODO: Creating an http server is also left
+	// NOTE: you were here
 	processors.ProcessResults(matchedPatternChan)
 
 	// waiters
