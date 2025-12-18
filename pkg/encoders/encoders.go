@@ -6,19 +6,19 @@ import (
 	"vivalchemy/cris/pkg/models"
 )
 
-func ValidateAndEncodeConfig(config *models.NewPatternSearchConfig) (*models.NewInternalPatternSearchConfig, error) {
+func ValidateAndEncodeConfig(config *models.SearchRequest) (*models.EncodedSearch, error) {
 	// Validation
 	if err := config.Validate(); err != nil {
 		return nil, err
 	}
 
-	internalPSC := models.NewNewInternalPatternSearchConfig(len(config.GuideSequences))
+	internalPSC := models.NewEncodedConfig(len(config.GuideSequences))
 
 	// Encode basic configuration
 	encodeBasicConfig(config, internalPSC)
 
 	// Encode tolerance specifications and segments
-	if err := encodeToleranceSpec(*config.ToleranceSpec, internalPSC); err != nil {
+	if err := encodeToleranceSpec(*config.Tolerance, internalPSC); err != nil {
 		return nil, err
 	}
 
@@ -28,37 +28,37 @@ func ValidateAndEncodeConfig(config *models.NewPatternSearchConfig) (*models.New
 	return internalPSC, nil
 }
 
-func encodeBasicConfig(config *models.NewPatternSearchConfig, internalPSC *models.NewInternalPatternSearchConfig) {
+func encodeBasicConfig(config *models.SearchRequest, internalPSC *models.EncodedSearch) {
 	// Set target file path
-	targetFilePath, _ := models.AvailableGenomes[config.TargetGenome]
+	targetFilePath, _ := models.AvailableGenomes[config.GenomeID]
 	internalPSC.TargetFilePath = targetFilePath
-	internalPSC.AllowedNs = config.AllowedNs
+	internalPSC.AllowedNs = config.Tolerance.AllowedNs
 
 	// Encode selected benchmarks
-	for _, benchMark := range config.SelectedBenchmarks {
+	for _, benchMark := range config.ScoringModels {
 		val, _ := models.ScoringAlgorithms[benchMark]
-		internalPSC.SelectedBenchmarks = append(internalPSC.SelectedBenchmarks, val)
+		internalPSC.ScoringModels = append(internalPSC.ScoringModels, val)
 	}
 
 	// Set tolerance values
-	internalPSC.MaxTotalMismatches = config.ToleranceSpec.MaxTotalMismatches
-	internalPSC.TotalGuideLength = config.ToleranceSpec.TotalGuideLength
+	internalPSC.MaxMismatches = config.Tolerance.MaxMismatches
+	internalPSC.GuideLength = config.Tolerance.GuideLength
 }
 
-func encodeToleranceSpec(toleranceSpec models.NewToleranceSpec, internalPSC *models.NewInternalPatternSearchConfig) error {
-	for _, segment := range toleranceSpec.SegmentSpec {
+func encodeToleranceSpec(toleranceSpec models.Tolerance, internalPSC *models.EncodedSearch) error {
+	for _, segment := range toleranceSpec.SegmentTolerance {
 		internalSegment, err := encodeSegment(segment)
 		if err != nil {
 			return err
 		}
-		internalPSC.SegmentSpec = append(internalPSC.SegmentSpec, internalSegment)
+		internalPSC.EncodedSegments = append(internalPSC.EncodedSegments, internalSegment)
 	}
 	return nil
 }
 
-func encodeSegment(segment models.NewSegmentTolerance) (*models.NewInternalSegmentTolerance, error) {
-	internalSegmentTolerance := models.NewNewInternalSegmentTolerance()
-	internalSegmentTolerance.AllowedMismatches = segment.AllowedMismatches
+func encodeSegment(segment models.SegmentTolerance) (*models.EncodedSegment, error) {
+	internalSegmentTolerance := models.NewEncodedSegment()
+	internalSegmentTolerance.MaxMismatches = segment.AllowedMismatches
 
 	// Calculate segment lengths (15-base chunks + overflow)
 	internalSegmentTolerance.Lengths = calculateSegmentLengths(segment.Length)
@@ -71,7 +71,7 @@ func encodeSegment(segment models.NewSegmentTolerance) (*models.NewInternalSegme
 
 		// reverse complement variants
 		encodedReverseComplementVariant := encodeVariantSequence(utils.ReverseComplement(variant), utils.Reverse(internalSegmentTolerance.Lengths))
-		internalSegmentTolerance.AllowedReverseComplementVariants = append(internalSegmentTolerance.AllowedReverseComplementVariants, encodedReverseComplementVariant)
+		internalSegmentTolerance.AllowedRCVariants = append(internalSegmentTolerance.AllowedRCVariants, encodedReverseComplementVariant)
 	}
 
 	return internalSegmentTolerance, nil
@@ -112,15 +112,15 @@ func encodeVariantSequence(variant string, lengths []int) []uint64 {
 	return encodedVariants
 }
 
-func encodeGuideSequences(guideSequences []string, internalPSC *models.NewInternalPatternSearchConfig) {
+func encodeGuideSequences(guideSequences []string, internalPSC *models.EncodedSearch) {
 	for _, guideSequence := range guideSequences {
-		encodedGuide, encodedReverseGuide := encodeGuideSequence(guideSequence, internalPSC.SegmentSpec)
-		internalPSC.GuideSequences = append(internalPSC.GuideSequences, encodedGuide)
-		internalPSC.ReverseGuideSequences = append(internalPSC.ReverseGuideSequences, encodedReverseGuide)
+		encodedGuide, encodedReverseGuide := encodeGuideSequence(guideSequence, internalPSC.EncodedSegments)
+		internalPSC.EncodedGuides = append(internalPSC.EncodedGuides, encodedGuide)
+		internalPSC.EncodedRCGuides = append(internalPSC.EncodedRCGuides, encodedReverseGuide)
 	}
 }
 
-func encodeGuideSequence(guideSequence string, segmentSpec []*models.NewInternalSegmentTolerance) ([]uint64, []uint64) {
+func encodeGuideSequence(guideSequence string, segmentSpec []*models.EncodedSegment) ([]uint64, []uint64) {
 	var encodedGuide []uint64
 	var encodedReverseGuide []uint64
 	var lengthPassedSoFar int

@@ -10,7 +10,7 @@ import (
 type SlidingWindow struct {
 	Segments        []uint64 // Array of bit patterns for each segment
 	ReverseSegments []uint64 // Segmenting the data in reverse order
-	Config          *models.NewInternalPatternSearchConfig
+	Config          *models.EncodedSearch
 }
 
 var slidingWindowPool = sync.Pool{
@@ -26,7 +26,7 @@ var stringBuilderPool = sync.Pool{
 	},
 }
 
-func NewSlidingWindow(config *models.NewInternalPatternSearchConfig) *SlidingWindow {
+func NewSlidingWindow(config *models.EncodedSearch) *SlidingWindow {
 	sw := slidingWindowPool.Get().(*SlidingWindow)
 	sw.Config = config
 	sw.Segments = make([]uint64, config.GetNumberOfSegments())
@@ -46,9 +46,9 @@ func (sw *SlidingWindow) AddNucleotide(nucleotide uint64) {
 	var overflowBits uint64 = nucleotide
 
 	// General case for other segment counts
-	for i := len(sw.Config.SegmentSpec) - 1; i >= 0; i-- {
-		for j := len(sw.Config.SegmentSpec[i].Lengths) - 1; j >= 0; j-- {
-			segmentSize := sw.Config.SegmentSpec[i].Lengths[j]
+	for i := len(sw.Config.EncodedSegments) - 1; i >= 0; i-- {
+		for j := len(sw.Config.EncodedSegments[i].Lengths) - 1; j >= 0; j-- {
+			segmentSize := sw.Config.EncodedSegments[i].Lengths[j]
 			maxBits := segmentSize * 4
 			mask := (uint64(1) << maxBits) - 1
 			sw.Segments[segmentCount] = (sw.Segments[segmentCount] << 4) | overflowBits
@@ -61,9 +61,9 @@ func (sw *SlidingWindow) AddNucleotide(nucleotide uint64) {
 	segmentCount = len(sw.ReverseSegments)
 	overflowBits = nucleotide
 	// take the first length and add it at last
-	for i := range sw.Config.SegmentSpec {
-		for j := range sw.Config.SegmentSpec[i].Lengths {
-			segmentSize := sw.Config.SegmentSpec[i].Lengths[j]
+	for i := range sw.Config.EncodedSegments {
+		for j := range sw.Config.EncodedSegments[i].Lengths {
+			segmentSize := sw.Config.EncodedSegments[i].Lengths[j]
 			maxBits := segmentSize * 4
 			mask := (uint64(1) << maxBits) - 1
 			sw.ReverseSegments[segmentCount] = (sw.ReverseSegments[segmentCount] << 4) | overflowBits
@@ -82,7 +82,7 @@ func (sw *SlidingWindow) GetSequence() string {
 	}()
 
 	segmentIndex := 0
-	for _, segment := range sw.Config.SegmentSpec {
+	for _, segment := range sw.Config.EncodedSegments {
 		for _, subSegmentLength := range segment.Lengths {
 			for i := range subSegmentLength {
 				nucleotideBits := (sw.Segments[segmentIndex] >> (i * 4)) & 0xF

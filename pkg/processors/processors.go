@@ -113,13 +113,13 @@ func validateGuideInternal(sw *pools.SlidingWindow, guideSequence []uint64, isRe
 		}
 	}
 
-	for segmentIdx, segmentSpec := range sw.Config.SegmentSpec {
+	for segmentIdx, segmentSpec := range sw.Config.EncodedSegments {
 		if len(segmentSpec.AllowedVariants) != 0 {
 			if isReverse {
 				if !matchWithVariants(
 					sw.ReverseSegments[currentSegmentIdx:currentSegmentIdx+len(segmentSpec.Lengths)],
-					segmentSpec.AllowedReverseComplementVariants,
-					utils.Reverse(sw.Config.SegmentSpec[len(sw.Config.SegmentSpec)-segmentIdx-1].Lengths),
+					segmentSpec.AllowedRCVariants,
+					utils.Reverse(sw.Config.EncodedSegments[len(sw.Config.EncodedSegments)-segmentIdx-1].Lengths),
 					sw.Config.AllowedNs > 0) {
 					return false
 				}
@@ -138,10 +138,10 @@ func validateGuideInternal(sw *pools.SlidingWindow, guideSequence []uint64, isRe
 				currentMismatches := matchWithMismatches(
 					guideSequence[currentSegmentIdx:currentSegmentIdx+len(segmentSpec.Lengths)],
 					sw.ReverseSegments[currentSegmentIdx:currentSegmentIdx+len(segmentSpec.Lengths)],
-					utils.Reverse(sw.Config.SegmentSpec[len(sw.Config.SegmentSpec)-segmentIdx-1].Lengths),
-					segmentSpec.AllowedMismatches,
+					utils.Reverse(sw.Config.EncodedSegments[len(sw.Config.EncodedSegments)-segmentIdx-1].Lengths),
+					segmentSpec.MaxMismatches,
 					sw.Config.AllowedNs > 0)
-				if currentMismatches > segmentSpec.AllowedMismatches {
+				if currentMismatches > segmentSpec.MaxMismatches {
 					return false
 				}
 				totalMismatches += currentMismatches
@@ -151,9 +151,9 @@ func validateGuideInternal(sw *pools.SlidingWindow, guideSequence []uint64, isRe
 					guideSequence[currentSegmentIdx:currentSegmentIdx+len(segmentSpec.Lengths)],
 					sw.Segments[currentSegmentIdx:currentSegmentIdx+len(segmentSpec.Lengths)],
 					segmentSpec.Lengths,
-					segmentSpec.AllowedMismatches,
+					segmentSpec.MaxMismatches,
 					sw.Config.AllowedNs > 0)
-				if currentMismatches > segmentSpec.AllowedMismatches {
+				if currentMismatches > segmentSpec.MaxMismatches {
 					return false
 				}
 				totalMismatches += currentMismatches
@@ -162,7 +162,7 @@ func validateGuideInternal(sw *pools.SlidingWindow, guideSequence []uint64, isRe
 		}
 	}
 
-	return totalMismatches <= sw.Config.MaxTotalMismatches
+	return totalMismatches <= sw.Config.MaxMismatches
 }
 
 // Unified validation function to reduce code duplication
@@ -250,8 +250,8 @@ func ValidateReverseComplementGuide(sw *pools.SlidingWindow, reverseComplementGu
 
 // Optimized pattern validation with early exit strategies
 func FindMatchedGuideIndices(sw *pools.SlidingWindow) []int {
-	guideSequences := sw.Config.GuideSequences
-	reverseGuideSequences := sw.Config.ReverseGuideSequences
+	guideSequences := sw.Config.EncodedGuides
+	reverseGuideSequences := sw.Config.EncodedRCGuides
 	numGuides := len(guideSequences)
 
 	// Pre-allocate with known size
@@ -284,9 +284,9 @@ func FindMatchedGuideIndices(sw *pools.SlidingWindow) []int {
 	return matchedGuideIndices
 }
 
-func ProcessFastaRecordChunks(config *models.NewInternalPatternSearchConfig, fastaRecordChunksChan <-chan *pools.FastaRecordChunk, matcedPatternChan chan<- *pools.MatchedPattern) {
+func ProcessFastaRecordChunks(config *models.EncodedSearch, fastaRecordChunksChan <-chan *pools.FastaRecordChunk, matcedPatternChan chan<- *pools.MatchedPattern) {
 	// Pre-calculate values outside the loop
-	totalGuideLength := config.TotalGuideLength
+	totalGuideLength := config.GuideLength
 	nucleotideToBitMap := bitmaps.NucleotideToBitMap
 
 	for fastaRecordChunk := range fastaRecordChunksChan {

@@ -13,22 +13,22 @@ import (
 )
 
 var (
-	_CHUNK_SIZE = 1024 * 1024 * 4 // 4MB
+// _CHUNK_SIZE = 1024 * 1024 * 4 // 4MB
 )
 
-func sendFastaRecordInChunks(config *models.NewInternalPatternSearchConfig, record *pools.FastaRecord, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) {
+func sendFastaRecordInChunks(config *models.EncodedSearch, record *pools.FastaRecord, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) {
 	sequence := record.Sequence
 	seqLen := len(sequence)
-	step := constants.CHUNK_SIZE - int(config.TotalGuideLength) + 1
+	step := constants.CHUNK_SIZE - int(config.GuideLength) + 1
 
-	if seqLen < config.TotalGuideLength || step <= 0 {
+	if seqLen < config.GuideLength || step <= 0 {
 		// utils.DebugPrintln("Send In Chunks:", "Error: Sequence length is less than config.TotalSize")
 		return
 	}
 
-	for i := 0; i < seqLen-config.TotalGuideLength; i += step {
+	for i := 0; i < seqLen-config.GuideLength; i += step {
 		end := min(i+constants.CHUNK_SIZE, seqLen)
-		if end-i < config.TotalGuideLength {
+		if end-i < config.GuideLength {
 			break
 		}
 		chunk := &pools.FastaRecordChunk{
@@ -41,7 +41,7 @@ func sendFastaRecordInChunks(config *models.NewInternalPatternSearchConfig, reco
 	}
 }
 
-func parseAndEncodeFastaFile(config *models.NewInternalPatternSearchConfig, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) error {
+func parseAndEncodeFastaFile(config *models.EncodedSearch, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) error {
 	fastaFile, err := os.Open(config.TargetFilePath)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
@@ -103,7 +103,7 @@ func parseAndEncodeFastaFile(config *models.NewInternalPatternSearchConfig, fast
 	return nil
 }
 
-func decodeFastaCacheFile(config *models.NewInternalPatternSearchConfig, cacheFileName string, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) error {
+func decodeFastaCacheFile(config *models.EncodedSearch, cacheFileName string, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) error {
 	cacheFile, err := os.Open(cacheFileName)
 	if err != nil {
 		return err
@@ -130,7 +130,7 @@ func decodeFastaCacheFile(config *models.NewInternalPatternSearchConfig, cacheFi
 }
 
 // first decode or not then parse and encode
-func ParseFastaFileOrDecodeCache(config *models.NewInternalPatternSearchConfig, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) error {
+func ParseFastaFileOrDecodeCache(config *models.EncodedSearch, fastaRecordChunksChan chan<- *pools.FastaRecordChunk) error {
 	cacheFileName := utils.GetCacheFileName(constants.CACHE_DIR, config.TargetFilePath)
 
 	if !utils.IsFileModifiedAfterCaching(cacheFileName, config.TargetFilePath) {

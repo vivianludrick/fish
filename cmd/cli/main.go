@@ -56,20 +56,20 @@ func main() {
 
 	// New Config
 
-	config := models.NewPatternSearchConfig{
+	config := models.SearchRequest{
 		GuideSequences: []string{
 			"AGCTGATCGTAGCTAGCTGATCT",
 			"CGTAGCTAGCTAGGCTAGCTAGT",
 		},
-		TargetGenome: models.GenomeDanioRerio,
-		SelectedBenchmarks: []string{
+		GenomeID: models.GenomeDanioRerio,
+		ScoringModels: []string{
 			"mitscore",
 			"doench",
 		},
-		SearchVariant: models.SearchVariantSpCas9,
-		AllowedNs:     0,
-		ToleranceSpec: nil,
+		MatchVariant: models.SearchVariantSpCas9,
+		Tolerance:    nil,
 	}
+
 	interalConfig, err := encoders.ValidateAndEncodeConfig(&config)
 	if err != nil {
 		fmt.Println(err)
