@@ -2,16 +2,23 @@ package processors
 
 import (
 	"math/bits"
+	"strings"
 	"vivalchemy/cris/internal/bitmaps"
 	"vivalchemy/cris/pkg/models"
 	"vivalchemy/cris/pkg/models/pools"
+	"vivalchemy/cris/pkg/scoring"
 )
 
-// TODO: Fetch the guide sequence here
 var (
-	GUIDE_SEQUENCE = "CTAATAGGAGAGTATGCTGATGG"
-	ALLOW_N        = false
+	ALLOW_N = false
 )
+
+// EncodedTarget holds a single encoded guide sequence ready for pattern matching.
+type EncodedTarget struct {
+	Sequence string   // original 23bp sequence (20bp guide + 3bp PAM)
+	Encoded  []uint64 // bit-encoded segments
+	Strand   string   // "forward" or "reverse"
+}
 
 func ComparePatterns(pattern1 []uint64, pattern2 []uint64, config *models.PatternConfig) bool {
 	totalMismatches := 0
@@ -50,74 +57,70 @@ func ComparePatterns(pattern1 []uint64, pattern2 []uint64, config *models.Patter
 	return true
 }
 
-// func ComparePatterns2(pattern1 []uint64, pattern2 []uint64, config *models.PatternConfig) bool {
-// 	totalMismatches := 0
-//
-// 	for i := len(config.Segments) - 1; i >= 0; i-- {
-// 		currentSegmentMismatches := 0
-// 		p1 := pattern1[i]
-// 		p2 := pattern2[i]
-//
-// 		for nibble := range 16 {
-// 			shift := uint(nibble * 4)
-// 			n1 := (p1 >> shift) & 0xF
-// 			n2 := (p2 >> shift) & 0xF
-//
-// 			if n1 != n2 {
-// 				currentSegmentMismatches++
-// 				totalMismatches++
-//
-// 				if currentSegmentMismatches > config.Segments[i].AllowedMismatch ||
-// 					totalMismatches > config.MaxMismatchAllowed {
-// 					return false
-// 				}
-// 			}
-// 		}
-// 	}
-// 	return true
-// }
-
-func ProcessFastaRecordChunks(targetPattern []uint64, config *models.PatternConfig, fastaRecordChunksChan <-chan *pools.FastaRecordChunk, matcedPatternChan chan<- *pools.MatchedPattern) {
+// ProcessFastaRecordChunks searches chunks against all encoded targets.
+// If exonIndex is non-nil, only matches overlapping exon regions are emitted.
+func ProcessFastaRecordChunks(targets []EncodedTarget, config *models.PatternConfig, exonIndex *models.ExonIndex, fastaRecordChunksChan <-chan *pools.FastaRecordChunk, matchedPatternChan chan<- *pools.MatchedPattern) {
 	for fastaRecordChunk := range fastaRecordChunksChan {
-		// fmt.Println("Processing Record:", fastaRecordChunk.Header)
 		if len(fastaRecordChunk.Sequence) < config.TotalSize {
 			continue
 		}
 
+		// Extract seqname (first word of header) for exon lookup
+		seqname := extractSeqname(fastaRecordChunk.Header)
+
 		slidingWindow := pools.NewSlidingWindow(config)
 
-		// fillup the sliding window to fullsize-1 so that next time we add we get full and start comparin there and there
-		// utils.DebugPrint("Processing Record: "+fastaRecord.Header, nil)
+		// Fill sliding window to TotalSize-1 so next AddNucleotide produces a full window
 		for i := range config.TotalSize - 1 {
 			slidingWindow.AddNucleotide(bitmaps.NucleotideToBitMap[fastaRecordChunk.Sequence[i]])
-			// fmt.Println("Segments", slidingWindow.Segments, "\tSequence:", slidingWindow.GetSequence())
 		}
 
 		for i := config.TotalSize - 1; i < len(fastaRecordChunk.Sequence); i++ {
 			nucleotide := fastaRecordChunk.Sequence[i]
-			// get the bit pattern for the current nucleotide
 			bitPattern := bitmaps.NucleotideToBitMap[nucleotide]
 			slidingWindow.AddNucleotide(bitPattern)
-			// fmt.Println("Processing Sequence: ", slidingWindow.GetSequence())
 
-			// fmt.Println("Segments", slidingWindow.Segments, "\tSequence:", slidingWindow.GetSequence())
-			if ComparePatterns(slidingWindow.Segments, targetPattern, config) {
-				matchedPattern := pools.NewPatternMatch()
-				matchedPattern.Header = fastaRecordChunk.Header
-				matchedPattern.MatchedSequence = slidingWindow.GetSequence()
-				matchedPattern.GuideSequence = GUIDE_SEQUENCE
-				matchedPattern.Offset = fastaRecordChunk.Offset + i - config.TotalSize + 2 // 1-based indexing, starting index at 22 spaces to left
+			matchPos := fastaRecordChunk.Offset + i - config.TotalSize + 2 // 1-based
 
-				matcedPatternChan <- matchedPattern
+			// Exon filter: skip positions outside exons
+			if exonIndex != nil {
+				matchEnd := matchPos + config.TotalSize - 1
+				if !exonIndex.OverlapsRange(seqname, matchPos, matchEnd) {
+					continue
+				}
+			}
+
+			for _, target := range targets {
+				if ComparePatterns(slidingWindow.Segments, target.Encoded, config) {
+					matchedPattern := pools.NewPatternMatch()
+					matchedPattern.Header = fastaRecordChunk.Header
+					matchedPattern.MatchedSequence = slidingWindow.GetSequence()
+					matchedPattern.GuideSequence = target.Sequence
+					matchedPattern.Offset = matchPos
+
+					matchedPatternChan <- matchedPattern
+				}
 			}
 		}
 		slidingWindow.Release()
 	}
 }
 
-func ProcessResults(matcedPatternChan <-chan *pools.MatchedPattern) {
-	for matcedPattern := range matcedPatternChan {
-		matcedPattern.Println()
-		matcedPattern.Release()
+// extractSeqname returns the first whitespace-delimited token from a FASTA header.
+// e.g. "NC_066869.1 Labeo rohita strain..." -> "NC_066869.1"
+func extractSeqname(header string) string {
+	if idx := strings.IndexAny(header, " \t"); idx >= 0 {
+		return header[:idx]
+	}
+	return header
+}
+
+func ProcessResults(matchedPatternChan <-chan *pools.MatchedPattern) {
+	for match := range matchedPatternChan {
+		scored := scoring.ScoreOffTarget(match.GuideSequence, match.MatchedSequence)
+		scored.Header = match.Header
+		scored.Offset = match.Offset
+		scored.Println()
+		match.Release()
 	}
 }
